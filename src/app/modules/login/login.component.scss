@@ -1,0 +1,25 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.login-button{
+    background-color: rgba(104, 78, 220, 1);
+    border-radius: 20px;
+    border: none;
+    height: 38px;
+    width: 323px;
+    margin-top: 668px;
+    color: white;
+}
+.sign-up-button{
+    background-color:rgba(176, 176, 176, 1);
+    color:white;
+    border: none;
+    height: 38px;
+    width: 323px;
+    border-radius:20px;
+    margin-top:29px;
+}

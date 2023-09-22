@@ -48,6 +48,9 @@ const routes: Routes = [
     component: MainComponent,
     children:[{path:'', component: GoalsComponent}] 
   },
+  
+  { path: '', component: LoginComponent },
+  
 ];
 
 @NgModule({
