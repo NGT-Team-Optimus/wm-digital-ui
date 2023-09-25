@@ -1,9 +1,15 @@
 <div class="mobile-container">
     <div class="container">
         <div class="row">
+            <div>
+
+            </div>
+        </div>
+        <div class="row">
             <div class="col">
+
                 <div class="button-word-button">
-                    <button (click)="goBackward()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    <button (click)="backwardButton()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                             <path
                                 d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
@@ -13,7 +19,7 @@
                     <p *ngIf="currentHeading === 2">Midterm goal</p>
                     <p *ngIf="currentHeading === 3">longterm goal</p>
 
-                    <button (click)="goForward()" style="float: right;"><svg xmlns="http://www.w3.org/2000/svg"
+                    <button (click)=" forwardButton()" style="float: right;"><svg xmlns="http://www.w3.org/2000/svg"
                             width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill"
                             viewBox="0 0 16 16">
                             <path
@@ -56,8 +62,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card" style="width: 20rem;" id="card1">
-                    <div class="card-body" style="background-color: #DAD3F8;">
+                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col">
                                 <img src="./assets/images/globe.png" alt="">
@@ -79,8 +85,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card" style="width: 20rem;" id="card1">
-                    <div class="card-body" style="background-color:#DAD3F8;">
+                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }">
+                    <div class="card-body">
                         <div class="text">
                             <div class="row">
                                 <div class="col">
@@ -104,8 +110,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card" style="width: 20rem;" id="card1">
-                    <div class="card-body" style="background-color: #DAD3F8;">
+                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col">
                                 <img src="./assets/images/car.png" alt="">
@@ -127,8 +133,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card" style="width: 20rem;" id="card1">
-                    <div class="card-body" style="background-color: #DAD3F8;">
+                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col">
                                 <img src="./assets/images/img.png" alt="">
@@ -150,8 +156,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card" style="width: 20rem;height:rem;" id="card1">
-                    <div class="card-body" style="background-color: #DAD3F8;">
+                <div class="card" style="width: 20rem;height:rem;" id="card1"
+                    [ngStyle]="{ 'background-color': currentColor }">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col"><img src="./assets/images/car.png" alt=""></div>
                             <div class="col">
