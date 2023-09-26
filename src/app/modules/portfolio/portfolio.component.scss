@@ -1,75 +1,138 @@
-.card {
-    width: fit-content;
-    height: fit-content;
-    margin-left: 400px;
-    margin-bottom: 40px;
+h6 {
     margin-top: 20px;
 }
 
-.container .header {
+
+.mobile-container {
+    height: fit-content;
+    width: fit-content;
+    background-color: #FFFFFF;
+
+    padding: 20px;
+    margin-top: 2px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 10px rgb(152, 152, 152);
+    margin-left: 400px;
+    margin-bottom: 80px;
+}
+
+.mobile-container .row .col {
     color: #483699;
-    margin-left: 20px;
-    margin-top: 10px;
-    font-size: 18px;
-    display: flex;
-}
-
-.header img {
-    height: 20px;
-    margin-left: 100px;
-    margin-right: 20px;
-    ;
-}
-
-.header1 {
-    color: #694FDC;
-    gap: 30px;
-    display: flex;
-
-
-}
-
-.header1 h3 {
-    font-size: 15px;
-    margin-left: 20px;
-}
-
-.header-body {
-    color: #505050;
-    gap: 30px;
-    display: flex;
-}
-
-.header-body p {
-    font-size: 20px;
     font-weight: bold;
-    margin-left: 20px;
 
 }
 
-.risk {
+.mobile-container .row:nth-child(2) .col {
     color: #505050;
-    margin-left: 20px;
+    font-weight: bold;
+}
+
+
+.row .col2 .card1 {
+    background-color: #483699;
+
+    border: 1px solid #ccc;
+
+    border-radius: 10px;
+
+
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    height: 180px;
+    width: 350px;
+
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-left: 50px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+hr {
+    width: 360px;
+
+}
+
+.calendar-link {
     display: flex;
+    align-items: center;
+    position: relative;
 }
 
-.risk h4 {
-    font-size: 20px;
-    margin-left: 20px;
-
+.calendar-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    height: 30px;
+    padding: 15px;
 }
 
-.risk img {
-    height: 40px;
-    margin-left: 200px;
+.calendar-link:hover .calendar-dropdown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.box {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    margin-right: 10px;
+}
+
+.box3 {
+    width: 30px;
+    height: 30px;
+    background-color: #ffae00;
+    margin-right: 10px;
+}
+
+.box4 {
+    width: 30px;
+    height: 30px;
+    background-color: #006400;
+    margin-right: 10px;
 }
 
 
 
-.card2 {
-    width: 1200px;
 
-}
+
+
 
 .container1 {
     display: flex;
@@ -91,14 +154,7 @@
 
 }
 
-.goals h1 {
-    font-size: 30px;
-    font-style: normal;
-    margin-left: 20px;
 
-
-
-}
 
 .card-body {
     line-height: 5px;
@@ -122,155 +178,4 @@
 
 .card-body p {
     margin-left: 10px;
-}
-
-
-
-.risk .dropdown {
-    position: relative;
-    display: inline-block;
-
-
-}
-
-.risk .dropdown .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-
-}
-
-.risk .dropdown .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.risk .dropdown .dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.risk .dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-
-
-.risk2 .dropdown {
-    position: relative;
-    display: inline-block;
-
-
-}
-
-.risk2 .dropdown .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-
-}
-
-.risk2 .dropdown .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.risk2 .dropdown .dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.risk2 .dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.risk1 .dropdown {
-    position: relative;
-    display: inline-block;
-
-
-}
-
-.risk1 .dropdown .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-
-
-}
-
-.risk1 .dropdown .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.risk1 .dropdown .dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.risk1 .dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.container {
-    height: fit-content;
-    width: 420px;
-    background-color: #FFFFFF;
-
-    padding: 20px;
-    margin-top: 2px;
-
-    border-radius: 10px;
-
-    box-shadow: 0px 0px 10px rgb(152, 152, 152);
-    margin-left: 400px;
-    margin-bottom: 80px;
 }
