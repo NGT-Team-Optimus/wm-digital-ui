@@ -10,7 +10,11 @@ import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { GoalsComponent } from './modules/goals/goals.component';
-
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,13 +26,18 @@ import { GoalsComponent } from './modules/goals/goals.component';
     SignUpComponent,
     DashboardComponent,
     PortfolioComponent,
-    GoalsComponent
+    GoalsComponent,
+    AuthenticationComponent
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

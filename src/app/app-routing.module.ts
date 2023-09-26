@@ -10,6 +10,7 @@ import { GoalsComponent } from './modules/goals/goals.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
   },
   
   { path: '', component: LoginComponent },
+  {path: 'auth', component: AuthenticationComponent},
   
 ];
 
