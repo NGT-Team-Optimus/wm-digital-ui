@@ -10,11 +10,16 @@ import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { GoalsComponent } from './modules/goals/goals.component';
+<<<<<<< HEAD
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+=======
+import { LoginHeaderComponent } from './layout/login-header/login-header.component';
+
+>>>>>>> a44402c2e73374c44ca997d4f6b5722094238baa
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     PortfolioComponent,
     GoalsComponent,
+<<<<<<< HEAD
     AuthenticationComponent
+=======
+    LoginHeaderComponent
+>>>>>>> a44402c2e73374c44ca997d4f6b5722094238baa
  
   ],
   imports: [

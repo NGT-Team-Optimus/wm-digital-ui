@@ -15,6 +15,11 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 
 const routes: Routes = [
   { 
+    path: '', 
+    component: MainComponent ,
+    children:[{path:'', component: LoginComponent}]
+  },
+  { 
     path: 'login', 
     component: MainComponent ,
     children:[{path:'', component: LoginComponent}]

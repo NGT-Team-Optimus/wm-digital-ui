@@ -41,20 +41,25 @@
 .form-control{
     margin-bottom: 15px;
 }
-.form-control-details{
-    color: blueviolet;
+.form-control1{
+    margin-top: 50px;
+    margin-bottom: 1px;
+
 }
-input[type=text]{
-    border: none;
-    border-bottom: 1px solid black;
-}
-.footer{
-    text-align: center;  
+.form-signup{
+    padding-left:75px;
 }
 .button{
     width: 100%;
     max-height: 100px;
     border-radius: 20px;
+    background-color: rgb(162, 91, 228);
+}
+.form-control-details{
+    color: blueviolet;
+}
+input[type=text]{
+    border: none;
    
-    
+    border-bottom: 1px solid black;
 }
