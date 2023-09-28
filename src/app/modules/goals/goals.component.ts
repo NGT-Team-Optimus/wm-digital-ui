@@ -53,7 +53,7 @@ export class GoalsComponent implements OnInit {
   forwardButton() {
     this.goForward();
     this.onForwardClick();
-    this.rotateImage();
+
   }
   backwardButton() {
     this.goBackward();
