@@ -61,6 +61,18 @@ const routes: Routes = [
   {path: 'auth', component: AuthenticationComponent},
 
   {
+    path: 'forgotPassword', component: ForgotPasswordComponent
+  },
+
+  {
+    path: 'codeverification', component: OtpComponent
+  },
+
+  {
+    path: 'login', component: LoginComponent
+  },
+
+  {
     path: 'otp', component: OtpComponent
            
   },
