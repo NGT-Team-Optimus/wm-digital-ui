@@ -10,9 +10,9 @@ import { GoalsComponent } from './modules/goals/goals.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
-import { OtpComponent } from './otp/otp.component';
-import { SettingPasswordComponent } from './setting-password/setting-password.component';
+import { AuthenticationComponent } from './modules/authentication/authentication.component';
+import { OtpComponent } from './modules/otp/otp.component';
+import { SettingPasswordComponent } from './modules/setting-password/setting-password.component';
 
 
 const routes: Routes = [
