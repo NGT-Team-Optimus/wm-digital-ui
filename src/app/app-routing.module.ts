@@ -10,6 +10,9 @@ import { GoalsComponent } from './modules/goals/goals.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
+import { AuthenticationComponent } from './modules/authentication/authentication.component';
+import { OtpComponent } from './modules/otp/otp.component';
+import { SettingPasswordComponent } from './modules/setting-password/setting-password.component';
 
 
 const routes: Routes = [
@@ -53,6 +56,32 @@ const routes: Routes = [
     component: MainComponent,
     children:[{path:'', component: GoalsComponent}] 
   },
+  
+  { path: '', component: LoginComponent },
+  {path: 'auth', component: AuthenticationComponent},
+
+  {
+    path: 'forgotPassword', component: ForgotPasswordComponent
+  },
+
+  {
+    path: 'codeverification', component: OtpComponent
+  },
+
+  {
+    path: 'login', component: LoginComponent
+  },
+
+  {
+    path: 'otp', component: OtpComponent
+           
+  },
+
+  {
+    path: 'pr', component: SettingPasswordComponent
+  }
+  
+  
 ];
 
 @NgModule({
