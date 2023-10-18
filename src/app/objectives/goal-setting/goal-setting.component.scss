@@ -1,0 +1,52 @@
+/* mobile-view.component.css */
+.mobile-container {
+
+    // background-color: #f2f2f2;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+
+    /* Styles for screens wider than 768px (not mobile) */
+    .mobile-container {
+
+        padding: 20px;
+        font-size: 1.2rem;
+        align-items: center;
+    }
+}
+
+.buttons {
+    margin: 4px;
+    border-radius: 6px;
+    background-color: white;
+    color: #684EDC;
+}
+
+.skipbutton {
+    background-color: white;
+    border: none;
+    color: #684EDC;
+}
+
+.accountbutton {
+    background-color: #684EDC;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    align-items: center;
+    margin-left: 140px;
+}
+
+.displayButton {
+    display: inline;
+}
+
+.container2 {
+    margin-top: 200px;
+}
