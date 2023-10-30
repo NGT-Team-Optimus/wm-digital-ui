@@ -10,13 +10,14 @@ import { GoalsComponent } from './modules/goals/goals.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
+import { LoginHeaderComponent } from './layout/login-header/login-header.component';
 
 
 const routes: Routes = [
   { 
     path: '', 
     component: MainComponent ,
-    children:[{path:'', component: LoginComponent}]
+    children:[{path:'', component: LoginHeaderComponent}]
   },
   { 
     path: 'login', 

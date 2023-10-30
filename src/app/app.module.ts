@@ -11,6 +11,8 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { GoalsComponent } from './modules/goals/goals.component';
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { LoginHeaderComponent } from './layout/login-header/login-header.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
+   HttpClientModule,
+   FormsModule
     // BrowserAnimationsModule
   ],
   providers: [],
