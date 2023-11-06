@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GoalsComponent } from './goals.component';
 
-describe('GoalsComponent', () => {
-  let component: GoalsComponent;
-  let fixture: ComponentFixture<GoalsComponent>;
+import { GoalsSettingComponent } from './goals-setting.component';
+
+describe('GoalsSettingComponent', () => {
+  let component: GoalsSettingComponent;
+  let fixture: ComponentFixture<GoalsSettingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GoalsComponent ]
+      declarations: [ GoalsSettingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoalsComponent);
+    fixture = TestBed.createComponent(GoalsSettingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
