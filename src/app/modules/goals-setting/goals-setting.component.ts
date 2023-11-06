@@ -11,7 +11,5 @@ export class GoalsSettingComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSave(): void{
-    console.log('Save button clicked! Perform saving logic here.');
-  }
+  
 }

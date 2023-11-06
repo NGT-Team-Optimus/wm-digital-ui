@@ -11,6 +11,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { GoalsComponent } from './modules/goals/goals.component';
 import { GoalsSettingComponent } from './modules/goals-setting/goals-setting.component';
+import { GoalsOnboardingComponent } from './modules/goals-onboarding/goals-onboarding.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { GoalsSettingComponent } from './modules/goals-setting/goals-setting.com
     DashboardComponent,
     PortfolioComponent,
     GoalsComponent,
-    GoalsSettingComponent
+    GoalsSettingComponent,
+    GoalsOnboardingComponent
  
   ],
   imports: [

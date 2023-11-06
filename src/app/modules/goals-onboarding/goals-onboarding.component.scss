@@ -1,0 +1,85 @@
+.container {
+    align-items: center;
+}
+.mobile-container {
+    max-width: 380px;
+    height:100%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    align-items: center;
+    background-color: #F8F5FE;
+}
+@media screen and (max-width: 1170px) and (max-height: 2532px) {
+ .mobile-container {
+ background-color: #F8F5FE;
+        height:1000px;
+        padding: 20px;
+       align-items: center;
+    }
+}
+
+.row{
+    border:0px;
+    font: bold;
+    font-size: 2rem;
+    
+.one{
+    margin-bottom: 20px;
+    width:5px;
+    height :5px;
+    border:1px ;
+    border-radius: 5%;
+
+}
+   
+}
+.three{
+    width:150px;
+    border:none;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-size:1rem;
+
+}
+.row1{
+
+    color:#483699;
+
+    margin-bottom: 10px;
+    border-color: white;
+    width: 76px;
+    height:27px;
+    text-align:left;
+    font-size: 20px;
+font-family: 'Segoe UI', sans-serif;
+    font-weight:normal;    
+    
+}
+.btn{
+    background-color: #684EDC;
+    color:white;
+   border: none;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1px 2px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size:1rem;
+    margin-top:30px;
+    
+}
+.row2{
+    color:#483699;
+    margin-bottom: 10px;
+    margin-top:10px;
+    border:none;
+    text-align:left;
+    font-size: 20px;
+     height:27px; 
+font-family: 'Segoe UI';
+}
+
