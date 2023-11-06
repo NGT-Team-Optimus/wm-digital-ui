@@ -10,6 +10,7 @@ import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { GoalsComponent } from './modules/goals/goals.component';
+import { GoalsSettingComponent } from './modules/goals-setting/goals-setting.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { GoalsComponent } from './modules/goals/goals.component';
     SignUpComponent,
     DashboardComponent,
     PortfolioComponent,
-    GoalsComponent
+    GoalsComponent,
+    GoalsSettingComponent
  
   ],
   imports: [
