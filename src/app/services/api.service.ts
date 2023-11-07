@@ -7,27 +7,31 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
+  private token : string | null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('token');
+   }
+ generateToken(request: any): Observable<any>{
+  return this.http.post('http://localhost:8090/user/signin', request);
+ }
 
-  generateToken(request: any){
-    return this.http.post("http://localhost:8090/user/signin",request, {responseType: 'text' as 'json'});
-  }
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(`http://localhost:8090/user/signin`, { email, password });
-  }
-  /*
-  welcome(token: string){
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.get('url', {headers, responseType: 'text' as 'json'})
-  }
-  */
-
-  register(userId: string){
-  //  return this.http.post(url,{});
+  setToken(token: string): void{
+    this.token = token;
+    localStorage.setItem('token', token);
   }
 
-  confirmSignup(email: string){
-   // return this.http.put(url, {});
+  getToken(): string | null{
+    return this.token;
   }
+
+  logout(): void {
+    this.token = null;
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.token;
+  }
+
 }
