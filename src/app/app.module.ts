@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './layout/main/main.component';
@@ -9,15 +8,16 @@ import { ForgotPasswordComponent } from './modules/forgot-password/forgot-passwo
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
-import { GoalsComponent } from './modules/goals/goals.component';
-import { AuthenticationComponent } from './modules/authentication/authentication.component';
+import { LoginHeaderComponent } from './layout/login-header/login-header.component';
+import { objectiveModule } from './objectives/objective.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { LoginHeaderComponent } from './layout/login-header/login-header.component';
-import { OtpComponent } from './modules/otp/otp.component';
 import { SettingPasswordComponent } from './modules/setting-password/setting-password.component';
+import { AuthenticationComponent } from './modules/authentication/authentication.component';
+import { OtpComponent } from './modules/otp/otp.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,23 +30,23 @@ import { SettingPasswordComponent } from './modules/setting-password/setting-pas
     SignUpComponent,
     DashboardComponent,
     PortfolioComponent,
-    GoalsComponent,
- 
-    AuthenticationComponent,
-
     LoginHeaderComponent,
-      OtpComponent,
-      SettingPasswordComponent
- 
- 
+    SettingPasswordComponent,
+    AuthenticationComponent,
+    OtpComponent,
+
+
+
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    objectiveModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    FormsModule
+
 
   ],
   providers: [],

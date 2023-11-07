@@ -1,0 +1,12 @@
+<div class="mobile-container">
+    <h3>Final Steps!</h3><br>
+    <p style="color:#483699 ;">Current goals recommended for you. <br> Tap on 5 goals to proceed ahead</p>
+    <div *ngFor="let goalModel of goalModel" class="displayButton">
+        <button class="buttons">{{goalModel.goalName}}</button>
+    </div>
+
+    <div class="container2">
+        <button class="skipbutton"> Skip</button>
+        <button class="accountbutton">Create Account</button>
+    </div>
+</div>
