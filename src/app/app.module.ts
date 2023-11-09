@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './layout/main/main.component';
@@ -9,10 +8,12 @@ import { ForgotPasswordComponent } from './modules/forgot-password/forgot-passwo
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
-import { GoalsComponent } from './modules/goals/goals.component';
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
+
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+
+import { objectiveModule } from './objectives/objective.module';
 
 
 @NgModule({
@@ -25,16 +26,19 @@ import { FormsModule } from '@angular/forms';
     SignUpComponent,
     DashboardComponent,
     PortfolioComponent,
-    GoalsComponent,
-    LoginHeaderComponent
- 
+    LoginHeaderComponent,
+
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+
    HttpClientModule,
-   FormsModule
+   FormsModule,
     // BrowserAnimationsModule
+
+    objectiveModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
