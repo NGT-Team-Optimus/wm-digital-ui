@@ -1,6 +1,11 @@
+
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validator } from '@angular/forms';
 import { ApiService } from 'src/app/service/api.service';
 import { GoalModel } from 'src/app/service/goal-model';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @Component({
@@ -9,14 +14,38 @@ import { GoalModel } from 'src/app/service/goal-model';
   styleUrls: ['./goal-setting.component.scss']
 })
 export class GoalSettingComponent implements OnInit {
-  goalModel: GoalModel[] = [];
-  constructor(private apiService: ApiService) { }
-  buttonValue: string[] = [];
 
+  goalModel: GoalModel[] = []
+  trueGoals: any[] = [];
+  maxButtons = 5;
+  constructor(private apiService: ApiService) {
+  }
 
   ngOnInit(): void {
+    this.getAllGoals();
+  }
+  getAllGoals() {
     this.apiService.getAllUsers().subscribe(
-      (data) => { this.goalModel = data }
+      (data) => { this.goalModel = data; }
     );
+    console.log(this.goalModel)
+  }
+
+  onChange(goalModel: any) {
+    goalModel.forEach((goal: { goalId: any; goalName: any; duration: any; financialGoalValue: any; isSelected: any; }) => {
+      if (goal.isSelected === true) {
+        this.trueGoals.push(goal)
+      }
+    });
+    console.log(this.trueGoals)
+  }
+  onCheckboxChange(goalModel: GoalModel[]) {
+    for (const goal of goalModel) {
+      goal.isSelected = !goal.isSelected;
+    }
+  }
+  countSelectedGoals(): number {
+    return this.goalModel.filter((goal) => goal.isSelected).length;
   }
 }
+
