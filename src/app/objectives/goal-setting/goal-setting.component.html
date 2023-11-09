@@ -1,19 +1,16 @@
 <div class="mobile-container">
-    <img src="./assets/images/group1.png" class="img">
-
     <h3>Final Steps!</h3><br>
     <p style="color:#483699 ;">Current goals recommended for you. <br> Tap on 5 goals to proceed ahead</p>
     <div class="container">
-        <div id="ck-button" *ngFor="let item of selectedGoals">
+        <div id="ck-button" *ngFor="let goals of goalModel">
             <label>
-                <input type="checkbox" name="{{item.goalName}}" [(ngModel)]="item.isSelected"
-                    [disabled]="countSelectedGoals() >= maxButtons && !item.isSelected">
-                <span>{{item.goalName}}</span>
+                <input type="checkbox" name="{{goals.goalName}}" [(ngModel)]="goals.isSelected"
+                    [disabled]="countSelectedGoals() >= maxButtons && !goals.isSelected"><span>{{goals.goalName}}</span>
             </label>
         </div>
     </div>
     <div class="container2">
         <button class="skipbutton">Skip</button>
-        <button class="accountbutton" type="submit" (click)="onChange(selectedGoals)">Create Account</button>
+        <button class="accountbutton" type="submit" (click)="onChange(goalModel)">Create Account</button>
     </div>
 </div>
