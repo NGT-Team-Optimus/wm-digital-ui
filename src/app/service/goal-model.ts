@@ -4,5 +4,7 @@ export class GoalModel {
     goalName!: string;
     duration!: number;
     financialGoalValue!: number;
+    isSelected!: boolean;
+
 
 }
