@@ -1,0 +1,102 @@
+.login-app-container{
+
+    display: none;
+
+}
+
+@media (min-width: 412px) and (max-width:892px){
+
+    .login-app-container{
+        display: block;
+    }
+    
+    .images{
+        margin-top: 200px;
+    }
+    
+    p{
+        color: #684EDC;
+        size: 16px;
+        padding-top: 10px;
+        margin-left: -14px;
+    }
+     .img-wifi{
+        
+        width:100px;
+        position: absolute;
+        top: 10px;
+        right: -15px;
+    }
+
+    .img-path{
+
+        position: absolute;
+
+        z-index: -1;
+
+        top: 140px;
+
+        left: 25px;
+
+    }
+
+    .img-money{
+
+        position: absolute;
+
+        top: 122px;
+
+        right: 0;
+
+        width: 25%;
+
+    }
+
+    .img-bank{
+
+        position: absolute;
+
+        top: 139px;
+        left: 2px;
+
+        width: 30%;
+
+    }
+
+    .img-note{
+
+        position: absolute;
+
+        top: 341px;
+
+        width: 20%;
+
+        left: 90px;
+
+    }
+    .img-person{
+
+        position: absolute;
+    top: 110px;
+    width: 100%;
+    left: 57px;
+
+    }
+    .img-line{
+
+        position: absolute;
+
+        top: 122px;
+
+        left: 112px;
+
+        width: 47%;
+
+    }
+
+}
+
+ 
+
+ 
+
