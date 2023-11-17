@@ -2,9 +2,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validator } from '@angular/forms';
-import { ApiService } from 'src/app/service/api.service';
-import { GoalModel } from 'src/app/service/goal-model';
+
+import { GoalModel } from 'src/app/interface/goal-model';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 
 
