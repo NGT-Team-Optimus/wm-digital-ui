@@ -24,48 +24,62 @@ const routes: Routes = [
     component: MainComponent ,
     children:[{path:'', component: LoginHeaderComponent}]
   },
+
   {
     path: 'login',
     component: MainComponent,
     children: [{ path: '', component: LoginComponent }]
   },
+
   {
     path: 'forgotPassword',
     component: MainComponent,
     children: [{ path: '', component: ForgotPasswordComponent }]
-  },
+  }, 
+ 
   {
     path: 'header',
     component: MainComponent,
     children: [{ path: '', component: HeaderComponent }]
   },
+
   {
     path: 'signUp',
     component: MainComponent,
     children: [{ path: '', component: SignUpComponent }]
   },
+
   {
     path: 'dashboard',
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }]
   },
+
   {
     path: 'portfolio',
     component: MainComponent,
     children:[{path:'', component: PortfolioComponent}],
     canActivate : [AuthGaurdService]
-   
   },
+
   {
     path: 'goals',
     component: MainComponent,
     children: [{ path: '', component: GoalsComponent }]
   },
+
   {
     path: 'goal-setting',
     component: MainComponent,
     children: [{ path: '', component: GoalSettingComponent }]
-  }
+  },
+
+  { path: '', component: ForgotPasswordComponent },
+  {path: 'otp', component: OtpComponent},
+   {path:'newpassword',component:SettingPasswordComponent},
+  {path:'login',component:LoginComponent},
+  {path:'dashboard',component:DashboardComponent}
+
 ];
 
 @NgModule({
