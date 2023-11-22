@@ -11,13 +11,16 @@ import { GoalsComponent } from './objectives/goals/goals.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
+import { LoginHeaderComponent } from './layout/login-header/login-header.component';
+import { AuthGaurdService } from './services/auth-gaurd.service';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MainComponent,
-    children: [{ path: '', component: LoginComponent }]
+
+  { 
+    path: '', 
+    component: MainComponent ,
+    children:[{path:'', component: LoginHeaderComponent}]
   },
   {
     path: 'login',
@@ -47,7 +50,9 @@ const routes: Routes = [
   {
     path: 'portfolio',
     component: MainComponent,
-    children: [{ path: '', component: PortfolioComponent }]
+    children:[{path:'', component: PortfolioComponent}],
+    canActivate : [AuthGaurdService]
+   
   },
   {
     path: 'goals',

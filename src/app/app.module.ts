@@ -9,7 +9,13 @@ import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
+
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
+
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +32,13 @@ import { objectiveModule } from './objectives/objective.module';
   ],
   imports: [
     AppRoutingModule,
+
+   HttpClientModule,
+   FormsModule,
+    // BrowserAnimationsModule
+
     objectiveModule
+
 
   ],
   providers: [],

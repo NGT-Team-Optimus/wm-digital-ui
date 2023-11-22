@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+user = {
+  email: '',
+  password: '',
+};
+   response: any
+   constructor(private ApiService: ApiService) { }
 
-  constructor() { }
+   userLogin(data:any){
+    console.log(data);
+    console.log(this.user);
+    this.ApiService.generateToken(data).subscribe(
+      response =>{
+        const token = response.token;
+        this.ApiService.setToken(token)
+        console.log(token);
+      }
+    )
+   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
   }
-
 }
