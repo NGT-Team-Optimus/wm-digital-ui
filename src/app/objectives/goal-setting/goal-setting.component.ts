@@ -29,8 +29,10 @@ export class GoalSettingComponent implements OnInit {
     this.apiService.getAllUsers().subscribe(
       (data) => { this.goalModel = data; }
     );
-    console.log(this.goalModel)
+    console.log(this.goalModel);
+
   }
+
 
   onChange(goalModel: any) {
     goalModel.forEach((goal: { goalId: any; goalName: any; duration: any; financialGoalValue: any; isSelected: any; }) => {

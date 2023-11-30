@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GoalModel } from 'src/app/interface/goal-model';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-goals',
@@ -12,27 +14,19 @@ export class GoalsComponent implements OnInit {
   private colors = ['#A291EE', '#f4f7e6', '#91EED2'];
   private currentIndex = 0;
   currentColor = this.colors[this.currentIndex];
-
-
-  rotationAngle: number = 0;
-
-  get rotateStyle(): string {
-    return `rotate(${this.rotationAngle}deg)`;
-  }
-
-  rotateImage(): void {
-    this.rotationAngle += 90;
-  }
-
+  goals: GoalModel[] = [];
   goForward() {
     if (this.currentHeading < 3) {
       this.currentHeading++;
+      this.loadGoals();
     }
+
   }
 
   goBackward() {
     if (this.currentHeading > 1) {
       this.currentHeading--;
+      this.loadGoals();
     }
   }
   onForwardClick() {
@@ -59,9 +53,57 @@ export class GoalsComponent implements OnInit {
     this.goBackward();
     this.onBackwardClick();
   }
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.loadGoals();
+  }
+  loadGoals() {
+    const userId = localStorage.getItem('userId');
+
+    if (userId) {
+      this.apiService.setUserId(userId);
+      // this.apiService.goalDurationS().subscribe(
+      //   data => {
+      //     this.goals = data
+      //   },
+      //   error => {
+      //     console.log('Error fetching:', error);
+      //   }
+      // );
+      if (this.currentHeading === 1) {
+        this.apiService.goalDurationS().subscribe(
+          data => {
+            this.goals = data
+          },
+          error => {
+            console.log('Error fetching:', error);
+          }
+        );
+      }
+      else if (this.currentHeading === 2) {
+        this.apiService.goalDurationM().subscribe(
+          data => {
+            this.goals = data
+          },
+          error => {
+            console.log('Error fetching:', error);
+          }
+        );
+      }
+      else if (this.currentHeading === 3) {
+        this.apiService.goalDurationL().subscribe(
+          data => {
+            this.goals = data
+          },
+          error => {
+            console.log('Error fetching:', error);
+          }
+        );
+      }
+    } else {
+      console.log('User ID not found in localStorage');
+    }
   }
 
 }
