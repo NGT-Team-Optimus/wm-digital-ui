@@ -27,8 +27,29 @@
 
     <div class ="chart1">
         <div class ="chart">
+            <div class = "graph" align="center" >
+                <circle-progress 
+                [percent]="percentage"  
+                [space]="-10" 
+                [radius]="100" 
+                [maxPercent]="100"
+                [title]="title"
+                [subtitle]="holding"
+                [subtitleFontSize]="'12'"
+                [outerStrokeWidth]="60"
+                [outerStrokeColor]="'#483699'" 
+                [innerStrokeColor]="'#F5EEFD'" 
+                [animation]="true"
+                [animationDuration]="1000"
+                >
+                
+            </circle-progress>
+            </div>
+            <div style = "text-align:right; font-size: medium; padding-right: 10px; color: #483699;">
+               <div style = "color: #F5EEFD"> Current Amount </div>
+               <div> Invested </div>
+            </div>
             <br>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
     </div>
     <div class = "container">
@@ -37,31 +58,93 @@
         <div class = "grid-container">
             <div class = "grid-item1">
                 <div class="percentage">
-                    <img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;">
+                <!--   <img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;"> --> 
+                    <div class ="graph" align="right">
+                        <circle-progress
+                            [percent]= "60"
+                            [radius] = "17"
+                            [space] ="-4"
+                            [maxPercent]="100"
+                            [title]="'60'"
+                            [titleFontSize]="'15'"
+                            [subtitle]="'%'"
+                            [outerStrokeWidth]="4"
+                            [outerStrokeColor]="'#483699'" 
+                            [innerStrokeColor]="'#F5EEFD'"
+                            [animationDuration]="1000"
+                            [innerStrokeWidth]="1"
+                            [showUnits]="false"
+                            [titleFontWeight]="'600'"
+                            >
+                        </circle-progress>
+                    </div>
                     <div class ="note-image">
-                    <a [routerLink]="['/goals']" routerLinkActive="router-link-active">
-                    <img src="/assets/images/note.png" class="img-note">
-                    </a>
+                        <a [routerLink]="['/goals']" routerLinkActive="router-link-active">
+                        <img src="/assets/images/note.png" class="img-note">
+                        </a>
                     </div>
                 </div>
             </div>
             <div class = "grid-item2">
                 <div class="percentage">
-                    <img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;">
+                    <!--<img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;">-->
+                    <div class ="graph" align="right">
+                        <circle-progress
+                            [percent]= "14"
+                            [radius] = "17"
+                            [space] ="-4"
+                            [maxPercent]="100"
+                            [title]="'14'"
+                            [titleFontSize]="'15'"
+                            [subtitle]="'%'"
+                            [outerStrokeWidth]="4"
+                            [outerStrokeColor]="'#483699'" 
+                            [innerStrokeColor]="'#F5EEFD'"
+                            [animationDuration]="1000"
+                            [innerStrokeWidth]="1"
+                            [showUnits]="false"
+                            [titleFontWeight]="'600'"
+                            >
+                        </circle-progress>
+                    </div>
                     <div class ="note-image2">
-                        <img src="/assets/images/midtermperson.png" class="img-note2">
-                        </div>
+                        <a [routerLink]="['/goals']" routerLinkActive="router-link-active">
+                            <img src="/assets/images/midtermperson2.png" class="img-note2">
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class = "grid-item3">
                 <div class="percentage">
-                    <img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;">
+                    <!--<img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;">-->
+                    <div class ="graph" align="right">
+                        <circle-progress
+                            [percent]= "84"
+                            [radius] = "17"
+                            [space] ="-4"
+                            [maxPercent]="100"
+                            [title]="'84'"
+                            [titleFontSize]="'15'"
+                            [subtitle]="'%'"
+                            [outerStrokeWidth]="4"
+                            [outerStrokeColor]="'#483699'" 
+                            [innerStrokeColor]="'#F5EEFD'"
+                            [animationDuration]="1000"
+                            [innerStrokeWidth]="1"
+                            [showUnits]="false"
+                            [titleFontWeight]="'600'"
+                            >
+                        </circle-progress>
+                    </div>
                     <div class ="note-image2">
-                        <img src="/assets/images/longtermperson.png" class="img-note2">
+                        <a [routerLink]="['/goals']" routerLinkActive="router-link-active">
+                            <img src="/assets/images/longtermperson2.png" class="img-note2">
+                        </a>
                         </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <br>
         Short term &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
         Mid term &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;
         long term
