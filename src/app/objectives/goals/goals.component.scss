@@ -44,17 +44,27 @@
     padding-top: 5px;
 }
 
+
 .text {
     color: white;
 }
 
 .card-body {
     border-radius: 6px;
+    display: fixed;
+    padding: 10px;
 }
 
 .datetext {
     text-align: right;
 
+}
+
+.images {
+    padding-top: 6px;
+    height: 100px;
+    width: 100px;
+    border-radius: 16px;
 }
 
 .triptext {
@@ -65,10 +75,6 @@
     margin-left: 40px;
     padding-left: 15px;
 }
-
-// #viewbutton {
-//     margin-left: 236px;
-// }
 
 .allbutton {
     margin-left: 226px;
