@@ -4,6 +4,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { DatePipe } from '@angular/common';
 
 
+
+
 @Component({
   selector: 'app-goals',
   templateUrl: './goals.component.html',
@@ -38,6 +40,7 @@ export class GoalsComponent implements OnInit {
     if (this.currentHeading < 3) {
       this.currentHeading++;
       this.loadGoals();
+
     }
 
   }
@@ -46,6 +49,7 @@ export class GoalsComponent implements OnInit {
     if (this.currentHeading > 1) {
       this.currentHeading--;
       this.loadGoals();
+
     }
   }
   onForwardClick() {
@@ -72,6 +76,7 @@ export class GoalsComponent implements OnInit {
     this.goBackward();
     this.onBackwardClick();
   }
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
