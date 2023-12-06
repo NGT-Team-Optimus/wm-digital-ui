@@ -45,7 +45,8 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: MainComponent,
-    children: [{ path: '', component: DashboardComponent }]
+    children: [{ path: '', component: DashboardComponent }],
+    canActivate : [AuthGaurdService]
   },
   {
     path: 'portfolio',

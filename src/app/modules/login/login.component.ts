@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
     this.ApiService.generateToken(data).subscribe(
       response => {
         const token = response.token;
-        const userId = response.userId
+        const userId = response.userId;
+        this.ApiService.setUserId(userId);
+        console.log(userId);
         this.ApiService.setToken(token)
         this.ApiService.setUserId(userId)
         console.log(token);

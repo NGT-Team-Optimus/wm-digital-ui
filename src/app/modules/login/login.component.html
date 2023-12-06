@@ -18,6 +18,7 @@
         <div class= "form-control-details">
         <label for="password">Password</label><br></div>
         <input id = "password" autocomplete = "new-password" type ="password" [(ngModel)]="user.password" name="password" required>
+        
     </div>
     <div class="form-control">
         <a [routerLink]="['/forgotPassword']" routerLinkActive="router-link-active" >Forgot password ?</a>
@@ -25,7 +26,7 @@
         <br>
         <div class =" form-control-button">
     <button class="button" type="submit">
-      <a [routerLink]="['/portfolio']" routerLinkActive="router-link-active" >Login</a>
+      <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >Login</a>
     </button>
     </div>
     <div class="form-control1">

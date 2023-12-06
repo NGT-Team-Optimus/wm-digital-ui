@@ -12,9 +12,12 @@ export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
+  private baseUrl = 'http://localhost:8090';
+
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
     this.userId = localStorage.getItem('userId');
+
   }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -41,7 +44,13 @@ export class ApiService implements OnInit {
   generateToken(request: any): Observable<any> {
     return this.http.post('http://localhost:8080/user/signin', request);
   }
+
+  getUsername(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
+  }
+
   setToken(token: string): void {
+
     this.token = token;
     localStorage.setItem('token', token);
   }
