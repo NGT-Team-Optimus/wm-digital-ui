@@ -5,6 +5,7 @@ export class GoalModel {
     duration!: number;
     financialGoalValue!: number;
     isSelected!: boolean;
+  
 
 
 }

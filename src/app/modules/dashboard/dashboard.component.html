@@ -7,7 +7,7 @@
             <img src ="/assets/images/notificationbell.png" alt ="profile pic" style="float:right">
             
         </div>
-        <h3>{{name}}</h3>    
+        <h3>Hello {{name}}</h3>    
     </div>
     <span style="color: #483699; font-size:xx-small;"> Add funds to enjoy the best possibilites on this app</span>
     <table style="width:100%">
@@ -61,11 +61,11 @@
                 <!--   <img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;"> --> 
                     <div class ="graph" align="right">
                         <circle-progress
-                            [percent]= "60"
+                            [percent]= "percentageS"
                             [radius] = "17"
                             [space] ="-4"
                             [maxPercent]="100"
-                            [title]="'60'"
+                            [title]="titleS"
                             [titleFontSize]="'15'"
                             [subtitle]="'%'"
                             [outerStrokeWidth]="4"
@@ -79,7 +79,7 @@
                         </circle-progress>
                     </div>
                     <div class ="note-image">
-                        <a [routerLink]="['/goals']" routerLinkActive="router-link-active">
+                        <a (click)="navigateToGoals('short-term')">
                         <img src="/assets/images/note.png" class="img-note">
                         </a>
                     </div>
@@ -90,11 +90,11 @@
                     <!--<img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;">-->
                     <div class ="graph" align="right">
                         <circle-progress
-                            [percent]= "14"
+                            [percent]= "percentageM"
                             [radius] = "17"
                             [space] ="-4"
                             [maxPercent]="100"
-                            [title]="'14'"
+                            [title]="titleM"
                             [titleFontSize]="'15'"
                             [subtitle]="'%'"
                             [outerStrokeWidth]="4"
@@ -108,7 +108,9 @@
                         </circle-progress>
                     </div>
                     <div class ="note-image2">
-                        <a [routerLink]="['/goals']" routerLinkActive="router-link-active">
+                        <a (click)="navigateToGoals('mid-term')">
+                        <!--
+                        <a [routerLink]="['/goals']" routerLinkActive="router-link-active">-->
                             <img src="/assets/images/midtermperson2.png" class="img-note2">
                         </a>
                     </div>
@@ -119,11 +121,11 @@
                     <!--<img src ="/assets/images/percentage.png" alt ="percentage" style="float:right;max-height: 40px;">-->
                     <div class ="graph" align="right">
                         <circle-progress
-                            [percent]= "84"
+                            [percent]= "percentageL"
                             [radius] = "17"
                             [space] ="-4"
                             [maxPercent]="100"
-                            [title]="'84'"
+                            [title]="titleL"
                             [titleFontSize]="'15'"
                             [subtitle]="'%'"
                             [outerStrokeWidth]="4"
@@ -137,7 +139,7 @@
                         </circle-progress>
                     </div>
                     <div class ="note-image2">
-                        <a [routerLink]="['/goals']" routerLinkActive="router-link-active">
+                        <a (click)="navigateToGoals('long-term')">
                             <img src="/assets/images/longtermperson2.png" class="img-note2">
                         </a>
                         </div>
@@ -179,7 +181,7 @@
                             <img src="./assets/images/home.png" alt="" style="float: left;">
                         </div>
                         <div class="col">
-                            <span class="triptext" style = "font-style: roboto; font-size: medium;">Trip to Maldives</span><br>
+                            <span class="triptext" style = "font-style: roboto; font-size: medium;">Renovate Home</span><br>
                             <span class="triptext">2024</span><br>
                             <span class="triptext">$0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <span class="triptext">$200000</span><br>
@@ -200,7 +202,7 @@
                         <img src="./assets/images/car.png" alt="" style="float: left;">
                     </div>
                     <div class="col">
-                        <span class="triptext">Trip to Maldives</span><br>
+                        <span class="triptext">Ford Ranger</span><br>
                         <span class="triptext">2024</span><br>
                         <span class="triptext">$0</span>&nbsp;
                         <span class="triptext">$200000</span><br>
@@ -210,10 +212,8 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
-            
-        
     </div>
 </div>
 </body>

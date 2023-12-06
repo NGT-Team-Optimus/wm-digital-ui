@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GoalModel } from 'src/app/interface/goal-model';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-goals',
@@ -12,8 +15,6 @@ export class GoalsComponent implements OnInit {
   private colors = ['#A291EE', '#f4f7e6', '#91EED2'];
   private currentIndex = 0;
   currentColor = this.colors[this.currentIndex];
-
-
   rotationAngle: number = 0;
 
   get rotateStyle(): string {
@@ -59,9 +60,11 @@ export class GoalsComponent implements OnInit {
     this.goBackward();
     this.onBackwardClick();
   }
-  constructor() { }
+  //adding changes 
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit(): void {
+   
   }
-
+ 
 }
