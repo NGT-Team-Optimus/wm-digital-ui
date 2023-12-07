@@ -152,11 +152,11 @@ hr {
 .card-body {
     line-height: 5px;
     border-style: inset;
-    margin-left: 10px;
+
     margin-top: 15px;
     height: 250px;
     counter-set: right;
-    width: 360px;
+    width: 380px;
     border-radius: 20px;
     margin-bottom: 20px;
 }
@@ -199,4 +199,90 @@ hr {
 .card img {
     margin: 10px;
 
+}
+
+.row .col2 .b {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+
+}
+
+
+.image-container {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    left: 280px;
+    bottom: 0;
+    top: -20px;
+}
+
+.image-container1 {
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    left: 250px;
+    bottom: 0;
+    top: -20px;
+}
+
+.image-text {
+    display: flex;
+    gap: 58px;
+    font-size: 13px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.image-container-set1 {
+    display: flex;
+    gap: 45px;
+    margin-top: 30px;
+    align-items: center;
+    height: 30px
+}
+
+h5 {
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+h2 {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.seventy {
+
+    font-size: 18px;
+    color: #483699;
+}
+
+.twenty {
+
+    font-size: 18px;
+    color: #483699
+}
+
+.ten {
+    font-size: 18px;
+    color: #483699;
+}
+
+.long-term {
+    display: flex;
+}
+
+.short-term {
+    display: flex;
+}
+
+.medium-term {
+    display: flex;
+}
+
+.card-body hr {
+    width: 350px;
 }
