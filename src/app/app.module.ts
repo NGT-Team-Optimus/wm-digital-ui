@@ -18,6 +18,9 @@ import { SettingPasswordComponent } from './modules/setting-password/setting-pas
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
+import { Signup2Component } from './modules/signup2/signup2.component';
+
+
 
 
 
@@ -34,6 +37,8 @@ import { objectiveModule } from './objectives/objective.module';
     OtpComponent,
     SettingPasswordComponent,
     LoginHeaderComponent,
+    Signup2Component,
+    
 
   ],
    
@@ -41,13 +46,15 @@ import { objectiveModule } from './objectives/objective.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule,
+    RouterModule.forRoot([]),
+    // RouterModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     // BrowserAnimationsModule
     objectiveModule
   ],

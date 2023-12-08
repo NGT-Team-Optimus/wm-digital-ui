@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
 
 @Component({
   selector: 'app-otp',
@@ -30,7 +30,7 @@ export class OtpComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private userService: ApiService
+    private userService: ForgotpasswordService
   ) {
     this.route.queryParams.subscribe((params) => {
       this.email = params['email'];

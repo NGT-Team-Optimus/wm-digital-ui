@@ -15,6 +15,7 @@ import { OtpComponent } from './otp/otp.component';
 import { SettingPasswordComponent } from './modules/setting-password/setting-password.component';
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
 import { AuthGaurdService } from './services/auth-gaurd.service';
+import { Signup2Component } from './modules/signup2/signup2.component';
 
 
 const routes: Routes = [
@@ -79,7 +80,12 @@ const routes: Routes = [
   {path: 'otp', component: OtpComponent},
    {path:'newpassword',component:SettingPasswordComponent},
   {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent}
+  {path:'dashboard',component:DashboardComponent},
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'signup2', component: Signup2Component },
+  { path: 'goal-setting', component: GoalSettingComponent },
+ 
 
 ];
 

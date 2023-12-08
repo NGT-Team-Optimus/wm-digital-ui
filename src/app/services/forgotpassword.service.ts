@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ForgotpasswordService {
 
   private baseUrl = 'http://localhost:8082';
  // Replace with your API endpoint
@@ -28,9 +28,4 @@ forgotPassword(email: string): Observable<string> {
   }
 
 
-
-
-
-
 }
-

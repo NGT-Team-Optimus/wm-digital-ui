@@ -10,7 +10,7 @@ export class ApiService implements OnInit{
 
   private token : string | null;
   private userId : string | null;
-  private baseUrl = 'http://localhost:8090';
+  private baseUrl = 'http://localhost:8082';
 
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');

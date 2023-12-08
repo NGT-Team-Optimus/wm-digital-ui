@@ -1,6 +1,6 @@
 import { Component, OnInit, Output,EventEmitter} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from 'src/app/api.service';
+import { ForgotpasswordService } from 'src/app/services/forgotpassword.service'; 
 
 
 
@@ -18,7 +18,7 @@ export class SettingPasswordComponent implements OnInit {
 
   
   constructor(
-    private userService: ApiService,
+    private userService: ForgotpasswordService  ,
     private router: Router,
     private route: ActivatedRoute,
     

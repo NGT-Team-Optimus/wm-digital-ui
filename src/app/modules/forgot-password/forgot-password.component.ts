@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/api.service';
+import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
   // constructor(private userService:ApiService,private router: Router) { }
   constructor(
     private formBuilder: FormBuilder,
-    private userService: ApiService,
+    private userService: ForgotpasswordService,
     private router: Router
   ) {
     this.forgotPasswordForm = this.formBuilder.group({
