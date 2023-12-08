@@ -7,28 +7,30 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-user = {
-  email: '',
-  password: '',
-};
-   response: any
-   constructor(private ApiService: ApiService) { }
+  user = {
+    email: '',
+    password: '',
+  };
+  response: any
+  constructor(private ApiService: ApiService) { }
 
-   userLogin(data:any){
+  userLogin(data: any) {
     console.log(data);
     console.log(this.user);
     this.ApiService.generateToken(data).subscribe(
-      response =>{
+      response => {
         const token = response.token;
-         const userId = response.userId;
-         this.ApiService.setUserId(userId);
-         console.log(userId);
+        const userId = response.userId;
+        this.ApiService.setUserId(userId);
+        console.log(userId);
         this.ApiService.setToken(token)
+        this.ApiService.setUserId(userId)
         console.log(token);
+        console.log(userId);
       }
     )
-   }
+  }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
   }
 }
