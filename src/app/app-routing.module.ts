@@ -20,10 +20,10 @@ import { Signup2Component } from './modules/signup2/signup2.component';
 
 const routes: Routes = [
 
-  { 
-    path: '', 
-    component: MainComponent ,
-    children:[{path:'', component: LoginHeaderComponent}]
+  {
+    path: '',
+    component: MainComponent,
+    children: [{ path: '', component: LoginHeaderComponent }]
   },
 
   {
@@ -60,8 +60,10 @@ const routes: Routes = [
   {
     path: 'portfolio',
     component: MainComponent,
-    children:[{path:'', component: PortfolioComponent}],
-    canActivate : [AuthGaurdService]
+
+    children: [{ path: '', component: PortfolioComponent }],
+    canActivate: [AuthGaurdService]
+
   },
 
   {
