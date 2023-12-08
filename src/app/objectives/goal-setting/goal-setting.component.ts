@@ -2,7 +2,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validator } from '@angular/forms';
-
 import { GoalModel } from 'src/app/interface/goal-model';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
@@ -25,12 +24,15 @@ export class GoalSettingComponent implements OnInit {
   ngOnInit(): void {
     this.getAllGoals();
   }
+
   getAllGoals() {
     this.apiService.getAllUsers().subscribe(
       (data) => { this.goalModel = data; }
     );
-    console.log(this.goalModel)
+    console.log(this.goalModel);
+
   }
+
 
   onChange(goalModel: any) {
     goalModel.forEach((goal: { goalId: any; goalName: any; duration: any; financialGoalValue: any; isSelected: any; }) => {
