@@ -7,6 +7,7 @@ import { GoalsComponent } from "./goals/goals.component";
 import { GoalSettingComponent } from "./goal-setting/goal-setting.component";
 
 
+
 @NgModule({
     declarations: [
         GoalsComponent,
