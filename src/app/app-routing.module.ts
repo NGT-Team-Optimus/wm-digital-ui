@@ -17,10 +17,10 @@ import { AuthGaurdService } from './services/auth-gaurd.service';
 
 const routes: Routes = [
 
-  { 
-    path: '', 
-    component: MainComponent ,
-    children:[{path:'', component: LoginHeaderComponent}]
+  {
+    path: '',
+    component: MainComponent,
+    children: [{ path: '', component: LoginHeaderComponent }]
   },
   {
     path: 'login',
@@ -46,14 +46,14 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }],
-    canActivate : [AuthGaurdService]
+    canActivate: [AuthGaurdService]
   },
   {
     path: 'portfolio',
     component: MainComponent,
-    children:[{path:'', component: PortfolioComponent}],
-    canActivate : [AuthGaurdService]
-   
+    children: [{ path: '', component: PortfolioComponent }],
+    // canActivate: [AuthGaurdService]
+
   },
   {
     path: 'goals',
