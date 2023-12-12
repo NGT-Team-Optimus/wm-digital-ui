@@ -18,7 +18,7 @@ export class Signup2Component  {
       ssn: ['', [Validators.required, Validators.pattern(/^\d{12}$/), Validators.pattern(/^[0-9]+$/)]],
     });
   }
-  get userId() { return this.form.get('userId'); }
+  // get userId() { return this.form.get('userId'); }
   get email() { return this.form.get('email'); }
   get password() { return this.form.get('password'); }
   get ssn() { return this.form.get('ssn'); }
@@ -82,10 +82,7 @@ export class Signup2Component  {
   }
  
 
- onSubmitAndNavigate() {
-  this.onSubmit(); // Call the existing onSubmit method
-}
-
+ 
  
 
 

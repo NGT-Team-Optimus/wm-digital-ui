@@ -32,7 +32,7 @@ export class ApiService implements OnInit {
     return this.userId
   }
   getAllUsers(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>('http://localhost:8080/goals/get');
+    return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
   }
   goalDurationS(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/shortTerm`);
