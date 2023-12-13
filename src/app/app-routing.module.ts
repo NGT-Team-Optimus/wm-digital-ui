@@ -77,18 +77,10 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: GoalSettingComponent }]
   },
-
-  { path: '', component: ForgotPasswordComponent },
-  {path: 'otp', component: OtpComponent},
-   {path:'newpassword',component:SettingPasswordComponent},
-  {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent},
-  { path: '', redirectTo: '/signup', pathMatch: 'full' },
-  { path: 'signup', component: SignUpComponent },
-  { path: 'signup2', component: Signup2Component },
-  { path: 'goal-setting', component: GoalSettingComponent },
- 
-
+  {
+    path: 'goals/:category',
+    component: GoalsComponent
+  }
 ];
 
 @NgModule({

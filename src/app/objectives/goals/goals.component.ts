@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
 import { GoalModel } from 'src/app/interface/goal-model';
 import { ApiService } from 'src/app/services/api.service';
+
+
 import { DatePipe } from '@angular/common';
+
 
 
 
@@ -20,6 +25,16 @@ export class GoalsComponent implements OnInit {
   private colors = ['#A291EE', '#f4f7e6', '#91EED2'];
   private currentIndex = 0;
   currentColor = this.colors[this.currentIndex];
+
+  rotationAngle: number = 0;
+
+  get rotateStyle(): string {
+    return `rotate(${this.rotationAngle}deg)`;
+  }
+
+  rotateImage(): void {
+    this.rotationAngle += 90;
+
   goals: GoalModel[] = [];
   getImagePath(goalName: string): string {
     const imageMapping: { [key: string]: string } = {
@@ -34,6 +49,7 @@ export class GoalsComponent implements OnInit {
     };
     const imageFilename = imageMapping[goalName.toLowerCase()];
     return `./assets/images/${imageFilename}`;
+
   }
 
   goForward() {
@@ -76,6 +92,7 @@ export class GoalsComponent implements OnInit {
     this.goBackward();
     this.onBackwardClick();
   }
+
 
   constructor(private apiService: ApiService) { }
 
