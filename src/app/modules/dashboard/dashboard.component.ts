@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -10,10 +11,10 @@ export class DashboardComponent implements OnInit {
 
   //name : string = 'Hola, Sam';
   name: string | undefined;
-  numberOfGoals: string | undefined ;
+  numberOfGoals: string | undefined;
 
-response: any;
-  constructor(private ApiService: ApiService) { }
+  response: any;
+  constructor(private ApiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.ApiService.getUsername().subscribe(
@@ -23,7 +24,7 @@ response: any;
         this.numberOfGoals = data.numberOfGoals;
       }
     );
-    
+
   }
-        
+
 }

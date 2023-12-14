@@ -46,7 +46,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }],
-    canActivate : [AuthGaurdService]
+    canActivate: [AuthGaurdService]
   },
   {
     path: 'portfolio',
@@ -64,7 +64,10 @@ const routes: Routes = [
     path: 'goal-setting',
     component: MainComponent,
     children: [{ path: '', component: GoalSettingComponent }]
-  }
+  },
+  { path: 'goals/short-term', component: GoalsComponent, data: { heading: 'Short Term' } },
+  { path: 'goals/mid-term', component: GoalsComponent, data: { heading: 'Mid Term' } },
+  { path: 'goals/long-term', component: GoalsComponent, data: { heading: 'Long Term' } },
 ];
 
 @NgModule({

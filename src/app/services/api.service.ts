@@ -41,10 +41,14 @@ export class ApiService implements OnInit {
   goalDurationL(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/longTerm`);
   }
+
   generateToken(request: any): Observable<any> {
     return this.http.post('http://localhost:8080/user/signin', request);
   }
-
+  saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
+    const data = { userId, selectedGoals };
+    return this.http.post<any>('http://localhost:8080/addGoals', { userId, goals: selectedGoals })
+  }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
   }

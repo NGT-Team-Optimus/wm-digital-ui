@@ -41,6 +41,7 @@ export class GoalSettingComponent implements OnInit {
       }
     });
     console.log(this.trueGoals)
+
   }
   onCheckboxChange(goalModel: GoalModel[]) {
     for (const goal of goalModel) {
@@ -50,5 +51,8 @@ export class GoalSettingComponent implements OnInit {
   countSelectedGoals(): number {
     return this.goalModel.filter((goal) => goal.isSelected).length;
   }
+  // addAllGoals() {
+  //   const userId = localStorage.getItem('userId');
+  //   console.log(userId)
+  // }
 }
-
