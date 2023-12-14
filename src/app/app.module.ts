@@ -13,7 +13,7 @@ import { LoginHeaderComponent } from './layout/login-header/login-header.compone
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
-
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
@@ -36,6 +36,33 @@ import { objectiveModule } from './objectives/objective.module';
    HttpClientModule,
    FormsModule,
     // BrowserAnimationsModule
+
+    NgCircleProgressModule.forRoot({
+      "backgroundStrokeWidth": 0,
+      "backgroundPadding": 0,
+      "radius": 67,
+      "space": -20,
+      "toFixed": 0,
+      "maxPercent": 100,
+      "unitsColor": "#2d1daa",
+      "outerStrokeWidth": 40,
+      "outerStrokeColor": "#2327a4",
+      "outerStrokeGradientStopColor": "#10477e",
+      "outerStrokeLinecap": "butt",
+      "innerStrokeColor": "#e7e8ea",
+      "innerStrokeWidth": 100,
+      "title": "0",
+      "titleColor": "#1c38a6",
+      "titleFontWeight": "600",
+      "subtitleColor": "#271577",
+      "subtitleFontWeight": "600",
+      "imageHeight": 20,
+      "animateTitle": false,
+      "animationDuration": 1000,
+      "showUnits": true,
+      "showBackground": false,
+      "lazy": true}),
+  
 
     objectiveModule
 

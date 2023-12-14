@@ -65,17 +65,25 @@ th{
 }
 */
 .note-image{
-    padding-top: 30px;
+    position: absolute;
+    padding-left: 5px;
+    padding-top: 0px;
 }
 .note-image2{
     position: absolute;
-    padding-top: 20px;
+    padding-top: 0px;
+    
 }
+
 .img-note{
     max-height: 82px;
 }
 .img-note2{
     max-height: 113px;
+}
+.note-image2 img{
+    width: 90px;
+    height: 90px;
 }
 body{
     background-color: #F3EEFE;
@@ -102,3 +110,31 @@ body{
 .triptext {
     font-size: 16px;
 }
+.card-toggle{
+    margin-left: 130px;
+    position: fixed;
+    bottom: 50px;
+    height: 60px;
+    width: 150px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+   // background-color: white;
+}
+
+ 
+.card-content {
+    display: flex;
+    flex-direction: row;
+}
+ 
+.card-toggle img {
+    margin: 10px;
+ 
+}
+
+ 
+ 
+
+ 
