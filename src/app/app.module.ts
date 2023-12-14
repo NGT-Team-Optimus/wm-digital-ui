@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NotificationsComponent } from './modules/notifications/notifications.component';
 
 
 
@@ -28,6 +29,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     DashboardComponent,
     PortfolioComponent,
     LoginHeaderComponent,
+    NotificationsComponent,
 
   ],
   imports: [

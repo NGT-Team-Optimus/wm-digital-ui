@@ -13,6 +13,7 @@ import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
 import { AuthGaurdService } from './services/auth-gaurd.service';
+import { NotificationsComponent } from './modules/notifications/notifications.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,12 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }],
+    canActivate : [AuthGaurdService]
+  },
+  {
+    path: 'notifications',
+    component : MainComponent,
+    children: [{path: '', component: NotificationsComponent}],
     canActivate : [AuthGaurdService]
   },
   {
