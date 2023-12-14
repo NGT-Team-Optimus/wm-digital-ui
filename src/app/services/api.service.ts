@@ -14,9 +14,10 @@ import { GoalModel } from '../interface/goal-model';
 export class ApiService implements OnInit {
 
 
-  private token: string | null;
-  private userId: string | null;
-  private baseUrl = 'http://localhost:8090';
+  private token : string | null;
+  private userId : string | null;
+  private baseUrl = 'http://localhost:8082';
+ 
 
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
@@ -34,7 +35,7 @@ export class ApiService implements OnInit {
     return this.userId
   }
   getAllUsers(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>('http://localhost:8080/goals/get');
+    return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
   }
   goalDurationS(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/shortTerm`);
