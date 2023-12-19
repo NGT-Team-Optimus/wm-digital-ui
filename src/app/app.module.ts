@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -37,6 +38,7 @@ import { NotificationsComponent } from './modules/notifications/notifications.co
 
    HttpClientModule,
    FormsModule,
+   CommonModule,
     // BrowserAnimationsModule
 
     NgCircleProgressModule.forRoot({

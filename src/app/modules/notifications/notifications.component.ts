@@ -22,7 +22,6 @@ export class NotificationsComponent implements OnInit {
     this.ApiService.getNotifications().subscribe(
       (data: any) => {
         this.notifications = data;
-        console.log(this.notifications);
       }
     );
 

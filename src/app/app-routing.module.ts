@@ -54,6 +54,7 @@ const routes: Routes = [
     component : MainComponent,
     children: [{path: '', component: NotificationsComponent}],
     canActivate : [AuthGaurdService]
+    
   },
   {
     path: 'portfolio',
