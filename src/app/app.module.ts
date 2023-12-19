@@ -8,11 +8,17 @@ import { ForgotPasswordComponent } from './modules/forgot-password/forgot-passwo
 import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
+import { OtpComponent } from './otp/otp.component';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { SettingPasswordComponent } from './modules/setting-password/setting-password.component';
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
-
-import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
+import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { CommonModule } from '@angular/common';
@@ -29,16 +35,36 @@ import { CommonModule } from '@angular/common';
     SignUpComponent,
     DashboardComponent,
     PortfolioComponent,
+    OtpComponent,
+    SettingPasswordComponent,
     LoginHeaderComponent,
+
     NotificationsComponent,
 
+    Signup2Component,
+    
+
+
   ],
+   
   imports: [
+    BrowserModule,
     AppRoutingModule,
 
-   HttpClientModule,
-   FormsModule,
+ 
    CommonModule,
+
+    FormsModule,
+    RouterModule.forRoot([]),
+    // RouterModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
     // BrowserAnimationsModule
 
     NgCircleProgressModule.forRoot({
@@ -69,8 +95,6 @@ import { CommonModule } from '@angular/common';
   
 
     objectiveModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
