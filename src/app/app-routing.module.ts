@@ -80,7 +80,15 @@ const routes: Routes = [
   {
     path: 'goals/:category',
     component: GoalsComponent
-  }
+  },
+
+  {path: 'otp', component: OtpComponent},
+
+  {path:'newpassword',component:SettingPasswordComponent},
+
+  { path: 'signup', component: SignUpComponent },
+
+  {path: 'signup2', component: Signup2Component}
 ];
 
 @NgModule({

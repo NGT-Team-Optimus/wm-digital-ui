@@ -23,6 +23,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     SettingPasswordComponent,
     LoginHeaderComponent,
     Signup2Component,
+    
     
 
   ],
