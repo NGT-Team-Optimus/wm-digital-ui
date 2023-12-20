@@ -8,11 +8,16 @@ import { GoalModel } from '../interface/goal-model';
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class ApiService implements OnInit {
+
 
   private token: string | null;
   private userId: string | null;
-  private baseUrl = 'http://localhost:8090';
+  private baseUrl = 'http://localhost:8082';
+
 
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
@@ -40,6 +45,10 @@ export class ApiService implements OnInit {
   }
   goalDurationL(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/longTerm`);
+  }
+  addGoalsByUser(userAndGoals: any): Observable<any> {
+    const url = `http://localhost:8080/addGoals`;
+    return this.http.post(url, userAndGoals);
   }
 
   generateToken(request: any): Observable<any> {

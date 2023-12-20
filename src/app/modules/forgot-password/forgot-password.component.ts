@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
+
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,9 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  // constructor(private userService:ApiService,private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: ForgotpasswordService,
+    private router: Router
+  ) {
+    this.forgotPasswordForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]]
+    });
+  
+  
   }
+  email: string = '';
+  currentStep = 1;
+  forgotPasswordForm: FormGroup;
+  name = new FormControl('');
+
+  
+
+  ngOnInit(): void {}
+  
+  sendVerificationCode() {
+    if (!this.email) {
+      // Handle the case where the email is empty
+      return;
+    }
+    this.userService.forgotPassword(this.email).subscribe(
+      (token) => {
+        // Handle the response here (e.g., show a success message)
+        this.router.navigate(['/otp'], { queryParams: { email: this.email } });
+      },
+      (error) => {
+        // Handle the error (e.g., display an error message)
+      }
+    );
+  }
+
+  
+ 
+  
 
 }

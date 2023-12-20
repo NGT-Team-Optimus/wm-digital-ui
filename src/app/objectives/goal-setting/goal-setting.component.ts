@@ -32,27 +32,34 @@ export class GoalSettingComponent implements OnInit {
     console.log(this.goalModel);
 
   }
+  addGoalsWithUserId() {
+    const userId = localStorage.getItem('userId');
+    this.trueGoals = this.goalModel.filter((goal) => goal.isSelected);
+    const userAndGoals = {
+      user: {
+        userId: userId,
+      },
+      goals: this.trueGoals,
+    };
 
-
-  onChange(goalModel: any) {
-    goalModel.forEach((goal: { goalId: any; goalName: any; duration: any; financialGoalValue: any; isSelected: any; }) => {
-      if (goal.isSelected === true) {
-        this.trueGoals.push(goal)
+    this.apiService.addGoalsByUser(userAndGoals).subscribe(
+      (response) => {
+        console.log('Goals added successfully');
+      },
+      (error) => {
+        console.error('Error adding goals', error);
       }
-    });
-    console.log(this.trueGoals)
-
+    );
+    console.log(userAndGoals);
   }
   onCheckboxChange(goalModel: GoalModel[]) {
     for (const goal of goalModel) {
       goal.isSelected = !goal.isSelected;
+      this.trueGoals.push(goal);
     }
   }
   countSelectedGoals(): number {
     return this.goalModel.filter((goal) => goal.isSelected).length;
   }
-  // addAllGoals() {
-  //   const userId = localStorage.getItem('userId');
-  //   console.log(userId)
-  // }
+
 }
