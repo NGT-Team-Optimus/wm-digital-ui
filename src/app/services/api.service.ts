@@ -34,19 +34,19 @@ export class ApiService implements OnInit {
     return this.userId
   }
   getAllUsers(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>('http://localhost:8080/goals/get');
+    return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
   }
   goalDurationS(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/shortTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);
   }
   goalDurationM(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/midTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/midTerm`);
   }
   goalDurationL(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/longTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/longTerm`);
   }
   generateToken(request: any): Observable<any> {
-    return this.http.post('http://localhost:8080/user/signin', request);
+    return this.http.post('http://localhost:8082/user/signin', request);
   }
 
   getUsername(): Observable<any> {
