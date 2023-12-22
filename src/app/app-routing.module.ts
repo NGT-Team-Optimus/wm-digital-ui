@@ -81,6 +81,7 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: GoalSettingComponent }]
   },
+
   {
     path: 'goals/:category',
     component: GoalsComponent
