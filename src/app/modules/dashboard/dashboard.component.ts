@@ -16,15 +16,14 @@ export class DashboardComponent implements OnInit {
   title!: string;
   titleS!: string;
   titleM!: string;
-  titleL!:string;
-  holding : string = 'holding amout: $ 0.0'
+  titleL!: string;
+  holding: string = 'holding amout: $ 0.0'
   percentage!: number;
   percentageS: number = 0;
   percentageM: number = 0;
   percentageL: number = 0;
   goals: any[] = [];
-
-response: any;
+  response: any;
   constructor(private ApiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
@@ -35,6 +34,7 @@ response: any;
         this.numberOfGoals = data.numberOfGoals;
       }
     );
+
       this.ApiService.getUsername().subscribe(
         (data: any) => {
          const  goal = data.goals;
@@ -86,18 +86,17 @@ response: any;
           let floatPercentL: number = parseFloat(percentL.toFixed(0));
           this.percentageL = floatPercentL;
           this.titleL =""+this.percentageL;
-          
-        }
-      );
-      
+         
+
+      }
+    );
+
   }
   //for short mid and long goals
-        navigateToGoals(category: string){
-          this.router.navigate(['/goals', category]);
-        }
-        
-  
-        
+  navigateToGoals(category: string) {
+    this.router.navigate(['/goals', category]);
+  }
+
 }
 
 
