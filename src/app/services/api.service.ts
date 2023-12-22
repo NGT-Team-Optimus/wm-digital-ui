@@ -11,30 +11,40 @@ import { GoalModel } from '../interface/goal-model';
 
 
 
-export class ApiService implements OnInit {
 
+export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
   private baseUrl = 'http://localhost:8082';
 
+
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
     this.userId = localStorage.getItem('userId');
+
 
   }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
+
+
+
+
+
+
+
+  getUserId(): string | null {
+    return this.userId
+  }
+
   setUserId(userId: string): void {
     this.userId = userId;
     localStorage.setItem('userId', userId);
   }
-  getUserId(): string | null {
-    return this.userId
-  }
   getAllUsers(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
+    return this.http.get<GoalModel[]>('http://localhost:8080/goals/get');
   }
   goalDurationS(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);

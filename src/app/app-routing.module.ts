@@ -63,9 +63,9 @@ const routes: Routes = [
 
     children: [{ path: '', component: PortfolioComponent }],
 
-
-
     canActivate: [AuthGaurdService]
+
+    // canActivate: [AuthGaurdService]
 
 
   },
