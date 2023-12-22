@@ -34,7 +34,7 @@ export class GoalsComponent implements OnInit {
 
   rotateImage(): void {
     this.rotationAngle += 90;
-
+  }
   goals: GoalModel[] = [];
   getImagePath(goalName: string): string {
     const imageMapping: { [key: string]: string } = {
