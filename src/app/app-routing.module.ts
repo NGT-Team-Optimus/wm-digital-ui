@@ -15,6 +15,7 @@ import { OtpComponent } from './otp/otp.component';
 import { SettingPasswordComponent } from './modules/setting-password/setting-password.component';
 import { LoginHeaderComponent } from './layout/login-header/login-header.component';
 import { AuthGaurdService } from './services/auth-gaurd.service';
+import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { Signup2Component } from './modules/signup2/signup2.component';
 
 
@@ -55,8 +56,18 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }],
     canActivate: [AuthGaurdService]
+
+
   },
 
+  {
+    path: 'notifications',
+    component : MainComponent,
+    children: [{path: '', component: NotificationsComponent}],
+    canActivate : [AuthGaurdService]
+    
+
+  },
   {
     path: 'portfolio',
     component: MainComponent,

@@ -19,6 +19,7 @@ export class ApiService implements OnInit {
   private baseUrl = 'http://localhost:8082';
 
 
+
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
     this.userId = localStorage.getItem('userId');
@@ -39,10 +40,15 @@ export class ApiService implements OnInit {
     return this.userId
   }
 
+
   setUserId(userId: string): void {
     this.userId = userId;
     localStorage.setItem('userId', userId);
   }
+
+
+
+
   getAllUsers(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
   }
@@ -69,6 +75,9 @@ export class ApiService implements OnInit {
   }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
+  }
+  getNotifications(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/notifications/user/${this.userId}/latest`);
   }
 
   setToken(token: string): void {
