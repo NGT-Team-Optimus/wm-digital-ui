@@ -22,6 +22,7 @@ import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -52,17 +53,19 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
 
 
-
+    // MatInputModule,
     CommonModule,
     FormsModule,
     RouterModule.forRoot([]),
     // RouterModule,
     MatFormFieldModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
 
     HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule,
 
