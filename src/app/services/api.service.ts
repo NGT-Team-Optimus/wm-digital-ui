@@ -9,14 +9,15 @@ import { GoalModel } from '../interface/goal-model';
   providedIn: 'root'
 })
 
+
+
+
+
 export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
   private baseUrl = 'http://localhost:8082';
-
-
- 
 
 
 
@@ -41,28 +42,42 @@ export class ApiService implements OnInit {
   getUserId(): string | null {
     return this.userId;
   }
+
   setUserId(userId: string): void {
     this.userId = userId;
     localStorage.setItem('userId', userId);
+
+  
   }
 
   
 
   goalDurationS(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/shortTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/shortTerm`);
   }
   goalDurationM(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/midTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/midTerm`);
   }
   goalDurationL(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/longTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/longTerm`);
   }
-  generateToken(request: any): Observable<any> {
-    return this.http.post('http://localhost:8080/user/signin', request);
+  addGoalsByUser(userAndGoals: any): Observable<any> {
+    const url = `http://localhost:8080/addGoals`;
+    return this.http.post(url, userAndGoals);
   }
 
+  generateToken(request: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/user/signin`, request);
+  }
+  saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
+    const data = { userId, selectedGoals };
+    return this.http.post<any>('http://localhost:8080/addGoals', { userId, goals: selectedGoals })
+  }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
+  }
+  getNotifications():Observable<any>{
+    return this.http.get(`${this.baseUrl}/notifications/user/${this.userId}/latest`);
   }
 
   setToken(token: string): void {
