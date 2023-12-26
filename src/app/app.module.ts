@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
 import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -56,6 +56,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
     // BrowserAnimationsModule
 
     NgCircleProgressModule.forRoot({
