@@ -1,31 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ActivatedRoute } from '@angular/router';
 import { GoalModel } from 'src/app/interface/goal-model';
 import { ApiService } from 'src/app/services/api.service';
 
-
-import { DatePipe } from '@angular/common';
-
-
-
-
-
 @Component({
   selector: 'app-goals',
   templateUrl: './goals.component.html',
-  styleUrls: ['./goals.component.scss'],
-  providers: [DatePipe]
+  styleUrls: ['./goals.component.scss']
 })
-
 export class GoalsComponent implements OnInit {
+
+
 
   currentHeading: number = 1;
   heading: string = 'Short Term';
   private colors = ['#A291EE', '#f4f7e6', '#91EED2'];
   private currentIndex = 0;
   currentColor = this.colors[this.currentIndex];
-
   rotationAngle: number = 0;
 
   get rotateStyle(): string {
@@ -56,16 +47,13 @@ export class GoalsComponent implements OnInit {
     if (this.currentHeading < 3) {
       this.currentHeading++;
       this.loadGoals();
-
     }
-
   }
 
   goBackward() {
     if (this.currentHeading > 1) {
       this.currentHeading--;
       this.loadGoals();
-
     }
   }
   onForwardClick() {
@@ -92,9 +80,8 @@ export class GoalsComponent implements OnInit {
     this.goBackward();
     this.onBackwardClick();
   }
-
-
-  constructor(private apiService: ApiService) { }
+  //adding changes 
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.loadGoals();

@@ -35,16 +35,22 @@ export class ApiService implements OnInit {
     return this.userId
   }
   getAllUsers(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>('http://localhost:8080/goals/get');
+
+
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/goals/get`);
+
+ 
+
+
   }
   goalDurationS(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/shortTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/shortTerm`);
   }
   goalDurationM(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/midTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/midTerm`);
   }
   goalDurationL(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/longTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/longTerm`);
   }
   addGoalsByUser(userAndGoals: any): Observable<any> {
     const url = `http://localhost:8080/addGoals`;
@@ -52,7 +58,7 @@ export class ApiService implements OnInit {
   }
 
   generateToken(request: any): Observable<any> {
-    return this.http.post('http://localhost:8080/user/signin', request);
+    return this.http.post(`${this.baseUrl}/user/signin`, request);
   }
   saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
     const data = { userId, selectedGoals };
@@ -60,6 +66,9 @@ export class ApiService implements OnInit {
   }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
+  }
+  getNotifications():Observable<any>{
+    return this.http.get(`${this.baseUrl}/notifications/user/${this.userId}/latest`);
   }
 
   setToken(token: string): void {
