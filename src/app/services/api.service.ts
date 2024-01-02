@@ -16,7 +16,7 @@ export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
-  private baseUrl = 'http://localhost:8082';
+  private baseUrl = 'http://localhost:8080';
 
 
   constructor(private http: HttpClient) {
@@ -35,33 +35,35 @@ export class ApiService implements OnInit {
     return this.userId
   }
   getAllUsers(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>('http://localhost:8080/goals/get');
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/goals/get`);
   }
   goalDurationS(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/shortTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/shortTerm`);
   }
   goalDurationM(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/midTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/midTerm`);
   }
   goalDurationL(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/longTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/longTerm`);
   }
   addGoalsByUser(userAndGoals: any): Observable<any> {
-    const url = `http://localhost:8080/addGoals`;
+    const url = `${this.baseUrl}/addGoals`;
     return this.http.post(url, userAndGoals);
   }
 
   generateToken(request: any): Observable<any> {
-    return this.http.post('http://localhost:8080/user/signin', request);
+    return this.http.post(`${this.baseUrl}/user/signin`, request);
   }
   saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
     const data = { userId, selectedGoals };
-    return this.http.post<any>('http://localhost:8080/addGoals', { userId, goals: selectedGoals })
+    return this.http.post<any>(`${this.baseUrl}/addGoals`, { userId, goals: selectedGoals })
   }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
   }
-
+  getFundValue(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`)
+  }
   setToken(token: string): void {
 
     this.token = token;

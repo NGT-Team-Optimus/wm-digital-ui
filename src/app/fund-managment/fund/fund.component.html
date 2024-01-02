@@ -1,0 +1,24 @@
+<div class="mobile-container">
+    <form [formGroup]="fundForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <label for="dropdown1">Dropdown 1:</label>
+            <select id="dropdown1" formControlName="dropdown1">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+            </select>
+        </div>
+        <div class="row">
+            <label for="dropdown2">Dropdown 2:</label>
+            <select id="dropdown2" formControlName="dropdown2">
+                <option value="optionA">Option A</option>
+                <option value="optionB">Option B</option>
+            </select>
+        </div>
+        <div class="row">
+            <label for="numberInput">Number Input:</label>
+            <input type="number" id="numberInput" formControlName="numberInput">
+        </div>
+        <button type="submit" [disabled]="fundForm.invalid">Submit</button>
+    </form>
+
+</div>

@@ -20,6 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
 import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FundComponent } from './fund-managment/fund/fund.component';
+
+
 
 
 
@@ -37,10 +40,13 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     SettingPasswordComponent,
     LoginHeaderComponent,
     Signup2Component,
-    
+    FundComponent,
+
+
+
 
   ],
-   
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -80,8 +86,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       "animationDuration": 1000,
       "showUnits": true,
       "showBackground": false,
-      "lazy": true}),
-  
+      "lazy": true
+    }),
+
 
     objectiveModule
   ],
