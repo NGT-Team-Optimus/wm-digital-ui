@@ -21,7 +21,7 @@ export class Signup2Component {
   // get userId() { return this.form.get('userId'); }
   get email() { return this.form.get('email'); }
   get password() { return this.form.get('password'); }
-  get userSSN() { return this.form.get('ssn'); }
+  get userSSN() { return this.form.get('userSSN'); }
 
   emailIsRequiredError() {
     return this.email?.hasError('required') && this.email?.touched;

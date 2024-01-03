@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
+
+
 
 
 
@@ -12,45 +15,38 @@ import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
 })
 export class SettingPasswordComponent implements OnInit {
   newPassword: string = '';
-  // Initialize with an empty strin // Initialize with an empty string
-  token: string = '';
-  // generatedOTP: string = '';
-  email: any = localStorage.getItem('email');
-  code: any = localStorage.getItem('token');
-
+  email: string = '';
+  code: string = '';
 
   constructor(
     private userService: ForgotpasswordService,
     private router: Router,
-    private route: ActivatedRoute,
-
-
+    private route: ActivatedRoute
   ) { }
-
 
   ngOnInit() {
     // Get the email and code from the route's query parameters
-
+    this.email = localStorage.getItem('email') || '';
+    this.code = localStorage.getItem('token') || '';
   }
 
-
-
   setNewPassword() {
-
-
     this.userService.confirmPassword(this.email, this.code, this.newPassword).subscribe(
-      (result) => {
+      (result: any) => {
         console.log(result); // Log the response to the console
-        alert("Password change result: ");
-        localStorage.removeItem('email')
-        localStorage.removeItem('token')
-        this.router.navigate(['/dashboard']);
+
+        if (result.includes('Password has changed successfully')) {
+          alert("Password change successful");
+          localStorage.removeItem('email');
+          localStorage.removeItem('token');
+          this.router.navigate(['/dashboard']);
+        } else {
+          console.error('Unexpected response during password change:', result);
+        }
       },
       (error) => {
-        // Handle the error (e.g., display an error message)
+        console.error('Error during password change:', error);
       }
     );
   }
-
-
 }

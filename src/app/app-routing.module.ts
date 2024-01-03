@@ -54,18 +54,18 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: MainComponent,
-    children: [{ path: '', component: DashboardComponent }],
+    children: [
+      { path: '', component: DashboardComponent }
+    ],
     canActivate: [AuthGaurdService]
-
-
   },
 
   {
     path: 'notifications',
-    component : MainComponent,
-    children: [{path: '', component: NotificationsComponent}],
-    canActivate : [AuthGaurdService]
-    
+    component: MainComponent,
+    children: [{ path: '', component: NotificationsComponent }],
+    canActivate: [AuthGaurdService]
+
 
   },
   {
@@ -76,7 +76,7 @@ const routes: Routes = [
 
     canActivate: [AuthGaurdService]
 
-    // canActivate: [AuthGaurdService]
+
 
 
   },
@@ -103,7 +103,8 @@ const routes: Routes = [
 
   { path: 'signup', component: SignUpComponent },
 
-  { path: 'signup2', component: Signup2Component }
+  { path: 'signup2', component: Signup2Component },
+
 
 ];
 
