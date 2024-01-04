@@ -56,6 +56,8 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }],
     canActivate: [AuthGaurdService]
+
+
   },
 
   {
@@ -64,13 +66,18 @@ const routes: Routes = [
     children: [{path: '', component: NotificationsComponent}],
     canActivate : [AuthGaurdService]
     
+
   },
   {
     path: 'portfolio',
     component: MainComponent,
 
     children: [{ path: '', component: PortfolioComponent }],
+
     canActivate: [AuthGaurdService]
+
+    // canActivate: [AuthGaurdService]
+
 
   },
 
@@ -89,7 +96,14 @@ const routes: Routes = [
   {
     path: 'goals/:category',
     component: GoalsComponent
-  }
+  },
+  { path: 'otp', component: OtpComponent },
+
+  { path: 'newpassword', component: SettingPasswordComponent },
+
+  { path: 'signup', component: SignUpComponent },
+
+  { path: 'signup2', component: Signup2Component }
 
 ];
 

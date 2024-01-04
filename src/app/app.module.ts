@@ -22,6 +22,7 @@ import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -42,26 +43,29 @@ import { CommonModule } from '@angular/common';
     NotificationsComponent,
 
     Signup2Component,
-    
+
 
 
   ],
-   
+
   imports: [
     BrowserModule,
     AppRoutingModule,
 
- 
-   CommonModule,
 
+    // MatInputModule,
+    CommonModule,
     FormsModule,
     RouterModule.forRoot([]),
     // RouterModule,
     MatFormFieldModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
     HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule,
 
@@ -91,8 +95,9 @@ import { CommonModule } from '@angular/common';
       "animationDuration": 1000,
       "showUnits": true,
       "showBackground": false,
-      "lazy": true}),
-  
+      "lazy": true
+    }),
+
 
     objectiveModule
   ],
