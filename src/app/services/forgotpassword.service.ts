@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ForgotpasswordService {
 
-  private baseUrl = 'http://localhost:8082';
+  private baseUrl = 'http://localhost:8090';
  // Replace with your API endpoint
 
  constructor(private http: HttpClient) { }

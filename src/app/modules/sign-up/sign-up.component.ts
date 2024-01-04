@@ -39,10 +39,6 @@ steps = [' 1', ' 2', ' 3'];
 redirectToSignup() {
     localStorage.setItem('name', this.yourForm.value.name);
     this.router.navigate(['/signup']);
- 
- 
- 
- 
   }
 }
 

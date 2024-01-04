@@ -16,7 +16,7 @@ export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
-  private baseUrl = 'http://localhost:8082';
+  private baseUrl = 'http://localhost:8090';
 
 
   constructor(private http: HttpClient) {
@@ -53,7 +53,7 @@ export class ApiService implements OnInit {
     return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/longTerm`);
   }
   addGoalsByUser(userAndGoals: any): Observable<any> {
-    const url = `http://localhost:8080/addGoals`;
+    const url = `http://localhost:8090/addGoals`;
     return this.http.post(url, userAndGoals);
   }
 
@@ -62,7 +62,7 @@ export class ApiService implements OnInit {
   }
   saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
     const data = { userId, selectedGoals };
-    return this.http.post<any>('http://localhost:8080/addGoals', { userId, goals: selectedGoals })
+    return this.http.post<any>('http://localhost:8090/addGoals', { userId, goals: selectedGoals })
   }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
