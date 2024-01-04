@@ -23,6 +23,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FundComponent } from './fund-managment/fund/fund.component';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -48,15 +49,19 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    // MatInputModule,
     CommonModule,
     FormsModule,
     RouterModule.forRoot([]),
     // RouterModule,
     MatFormFieldModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
     HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule,
 
