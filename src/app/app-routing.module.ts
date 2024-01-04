@@ -17,6 +17,9 @@ import { LoginHeaderComponent } from './layout/login-header/login-header.compone
 import { AuthGaurdService } from './services/auth-gaurd.service';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { Signup2Component } from './modules/signup2/signup2.component';
+import { FundComponent } from './fund-managment/fund/fund.component';
+
+
 
 
 const routes: Routes = [
@@ -92,7 +95,11 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: GoalSettingComponent }]
   },
-
+  {
+    path: 'fund',
+    component: MainComponent,
+    children: [{ path: '', component: FundComponent }]
+  },
   {
     path: 'goals/:category',
     component: GoalsComponent
