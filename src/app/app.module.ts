@@ -21,7 +21,8 @@ import { objectiveModule } from './objectives/objective.module';
 import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FundComponent } from './fund-managment/fund/fund.component';
-
+import { NotificationsComponent } from './modules/notifications/notifications.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -39,17 +40,15 @@ import { FundComponent } from './fund-managment/fund/fund.component';
     OtpComponent,
     SettingPasswordComponent,
     LoginHeaderComponent,
+    NotificationsComponent,
     Signup2Component,
     FundComponent,
-
-
-
-
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
     RouterModule.forRoot([]),
     // RouterModule,
@@ -60,6 +59,7 @@ import { FundComponent } from './fund-managment/fund/fund.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
     // BrowserAnimationsModule
 
     NgCircleProgressModule.forRoot({

@@ -3,6 +3,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GoalModel } from '../interface/goal-model';
+import { map } from 'rxjs/operators';
+import { Fund } from '../interface/fund';
 
 
 @Injectable({
@@ -61,9 +63,15 @@ export class ApiService implements OnInit {
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
   }
-  getFundValue(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`)
+
+  getFundValue(): Observable<Fund[]> {
+    return this.http.get<Fund[]>(`${this.baseUrl}/getAllAvailableFunds`);
   }
+
+  getNotifications(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/notifications/user/${this.userId}/latest`);
+  }
+
   setToken(token: string): void {
 
     this.token = token;
