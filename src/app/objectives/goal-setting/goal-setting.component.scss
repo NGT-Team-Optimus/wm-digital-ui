@@ -1,6 +1,6 @@
 .mobile-container {
 
-    // background-color: #f2f2f2;
+
     max-width: 380px;
     margin: 0 auto;
     padding: 2px;
@@ -11,7 +11,7 @@
 
 @media screen and (min-width: 600px) {
 
-    /* Styles for screens wider than 768px (not mobile) */
+
     .mobile-container {
 
         padding: 20px;
@@ -29,6 +29,39 @@
 
 .container2 {
     margin-top: 200px;
+}
+
+.container0 {
+    position: relative;
+}
+
+.img0 {
+    margin-left: -20px;
+    height: auto;
+    width: 370px;
+
+}
+
+.img1 {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    width: 120px;
+    height: 200px;
+}
+
+.img3 {
+    position: absolute;
+    top: 80px;
+    left: 250px;
+    height: 100px;
+}
+
+.img4 {
+    position: absolute;
+    top: -10px;
+    height: 55px;
+    left: 200px;
 }
 
 .skipbutton {
