@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
 import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -49,14 +49,16 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     RouterModule.forRoot([]),
     // RouterModule,
-    MatFormFieldModule,
+    // MatFormFieldModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
+    MatFormFieldModule,
+    
+
     // BrowserAnimationsModule
 
     NgCircleProgressModule.forRoot({

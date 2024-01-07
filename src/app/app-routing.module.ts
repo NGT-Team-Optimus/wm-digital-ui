@@ -36,8 +36,8 @@ const routes: Routes = [
     path: 'forgotPassword',
     component: MainComponent,
     children: [{ path: '', component: ForgotPasswordComponent }]
-  }, 
- 
+  },
+
   {
     path: 'header',
     component: MainComponent,
@@ -54,7 +54,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }],
-    canActivate : [AuthGaurdService]
+    canActivate: [AuthGaurdService]
   },
 
   {
@@ -77,9 +77,11 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: GoalSettingComponent }]
   },
+
   {
     path: 'goals/:category',
     component: GoalsComponent
+
   },
 
   {path: 'otp', component: OtpComponent},
@@ -89,6 +91,10 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
 
   {path: 'signup2', component: Signup2Component}
+
+
+
+
 ];
 
 @NgModule({

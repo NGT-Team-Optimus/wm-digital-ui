@@ -1,7 +1,7 @@
 
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GoalModel } from '../interface/goal-model';
 
 
@@ -9,15 +9,15 @@ import { GoalModel } from '../interface/goal-model';
   providedIn: 'root'
 })
 
- 
+
 
 export class ApiService implements OnInit {
 
 
-  private token : string | null;
-  private userId : string | null;
+  private token: string | null;
+  private userId: string | null;
   private baseUrl = 'http://localhost:8082';
- 
+
 
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
@@ -38,18 +38,26 @@ export class ApiService implements OnInit {
     return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
   }
   goalDurationS(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/shortTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);
   }
   goalDurationM(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/midTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/midTerm`);
   }
   goalDurationL(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8080/getGoals/${this.userId}/longTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/longTerm`);
   }
-  generateToken(request: any): Observable<any> {
-    return this.http.post('http://localhost:8080/user/signin', request);
+  addGoalsByUser(userAndGoals: any): Observable<any> {
+    const url = `http://localhost:8082/addGoals`;
+    return this.http.post(url, userAndGoals);
   }
 
+  generateToken(request: any): Observable<any> {
+    return this.http.post('http://localhost:8082/user/signin', request);
+  }
+  saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
+    const data = { userId, selectedGoals };
+    return this.http.post<any>('http://localhost:8082/addGoals', { userId, goals: selectedGoals })
+  }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
   }
@@ -77,4 +85,49 @@ export class ApiService implements OnInit {
   }
 
 
+
+
+
+
+
+
+
+
+ 
+  
+ 
+ 
+ 
+ 
+ getGeneratedOTP(email: string): Observable<string> {
+  return this.http.get<string>(`${this.baseUrl}/user/api/forget_password/${email}`);
 }
+ 
+// Define a method to initiate the forgot password process
+forgotPassword(email: string): Observable<string> {
+  return this.http.get<string>(`${this.baseUrl}/user/api/forget_password/${email}`);
+}
+ 
+  // Define a method to confirm a new password after forget password
+  confirmPassword(email: string, code: string, newPassword: string): Observable<any> {
+    const request = { email, code, newPassword };
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+ 
+    return this.http.post(`${this.baseUrl}/user/api/confirm_password`, request, {
+      headers,
+      responseType: 'text'
+    });
+  }   
+
+
+
+
+
+
+  
+  register(username: string, email: string, password: string, userSSN: string): Observable<any> {
+    return this.http.post('http://localhost:8082/user/signup', { username, email, password, userSSN });
+ 
+ 
+  }
+  }
