@@ -1,14 +1,19 @@
 import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 import { ApiService } from '../services/api.service';
  
+
+
+
 @Component({
   selector: 'app-otp',
   templateUrl: './otp.component.html',
   styleUrls: ['./otp.component.scss'],
 })
 export class OtpComponent implements OnInit {
+
    digit1: string = '';
    digit2: string = '';
    digit3: string = '';
@@ -28,6 +33,27 @@ export class OtpComponent implements OnInit {
    @ViewChild('digit4Input') digit4Input: ElementRef | undefined;
    
  
+
+  digit1: string = '';
+  digit2: string = '';
+  digit3: string = '';
+  digit4: string = '';
+  enteredOTP: string = '';
+
+  generatedOTP: string = '';
+
+  errorMessage: string = '';
+  email: string = '';
+  showMessage: boolean = false;
+
+
+  @ViewChild('digit1Input') digit1Input: ElementRef | undefined;
+  @ViewChild('digit2Input') digit2Input: ElementRef | undefined;
+  @ViewChild('digit3Input') digit3Input: ElementRef | undefined;
+  @ViewChild('digit4Input') digit4Input: ElementRef | undefined;
+
+
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -37,7 +63,7 @@ export class OtpComponent implements OnInit {
       this.email = params['email'];
     });
     localStorage.setItem('email', this.email);
-   
+
   }
  
   ngOnInit(): void {
@@ -75,10 +101,10 @@ export class OtpComponent implements OnInit {
       this.errorMessage = 'Invalid OTP. Please try again.';
       this.showEnterOtpMessage();
       this.clearOtpFields();
-       if (this.digit1Input) {
-      this.digit1Input.nativeElement.focus();
-       }
-     
+      if (this.digit1Input) {
+        this.digit1Input.nativeElement.focus();
+      }
+
     }
   }
  
@@ -96,11 +122,15 @@ export class OtpComponent implements OnInit {
   focusNextInput(currentInput: number) {
     const nextInput = currentInput + 1;
     const nextInputRef = this[`digit${nextInput}Input`];
+
  
+
+
     if (nextInputRef) {
       nextInputRef.nativeElement.focus();
     }
   }
+
  
 }
  
@@ -112,6 +142,13 @@ export class OtpComponent implements OnInit {
  
  
  
+
+
+}
+
+
+
+
 
 
 
