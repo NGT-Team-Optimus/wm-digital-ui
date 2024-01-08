@@ -28,6 +28,7 @@ import { MatInputModule } from '@angular/material/input';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,12 @@ import { MatInputModule } from '@angular/material/input';
     LoginHeaderComponent,
     NotificationsComponent,
     Signup2Component,
+
+    
+    
+
     FundComponent,
+
   ],
 
   imports: [
@@ -54,8 +60,10 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     RouterModule.forRoot([]),
     // RouterModule,
-    MatFormFieldModule,
 
+    // MatFormFieldModule,
+
+    MatFormFieldModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -64,6 +72,10 @@ import { MatInputModule } from '@angular/material/input';
 
     FormsModule,
     ReactiveFormsModule,
+
+    MatFormFieldModule,
+    
+
 
     // BrowserAnimationsModule
 

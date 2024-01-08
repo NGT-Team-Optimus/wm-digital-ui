@@ -1,3 +1,12 @@
+
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, Output,EventEmitter} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+// import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
+import { ApiService } from 'src/app/services/api.service';
+ 
+
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
@@ -11,6 +20,26 @@ import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
   styleUrls: ['./setting-password.component.scss']
 })
 export class SettingPasswordComponent implements OnInit {
+
+
+newPassword: string = '';
+  email: string = '';
+  code: string = '';
+ 
+  constructor(
+    private userService:ApiService ,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+ 
+  ngOnInit() {
+    // Get the email and code from the route's query parameters
+    this.email = localStorage.getItem('email') || '';
+    this.code = localStorage.getItem('token') || '';
+  }
+ 
+  setNewPassword() {
+
   newPassword: string = '';
   // Initialize with an empty strin // Initialize with an empty string
   token: string = '';
@@ -38,19 +67,29 @@ export class SettingPasswordComponent implements OnInit {
   setNewPassword() {
 
 
+
     this.userService.confirmPassword(this.email, this.code, this.newPassword).subscribe(
-      (result) => {
+      (result: any) => {
         console.log(result); // Log the response to the console
-        alert("Password change result: ");
-        localStorage.removeItem('email')
-        localStorage.removeItem('token')
-        this.router.navigate(['/dashboard']);
+ 
+        if (result.includes('Password has changed successfully')) {
+          alert("Password change successful");
+          localStorage.removeItem('email');
+          localStorage.removeItem('token');
+          this.router.navigate(['/dashboard']);
+        } else {
+          console.error('Unexpected response during password change:', result);
+        }
       },
       (error) => {
-        // Handle the error (e.g., display an error message)
+        console.error('Error during password change:', error);
       }
     );
   }
 
+}
+
+
 
 }
+

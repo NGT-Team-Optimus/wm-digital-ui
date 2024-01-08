@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
     password: '',
   };
   response: any
+
+  constructor(private ApiService: ApiService,private router:Router) { }
+
   constructor(private ApiService: ApiService, private router:Router) { }
+
 
   userLogin(data: any) {
 
@@ -21,8 +25,17 @@ export class LoginComponent implements OnInit {
       response => {
         const token = response.token;
         const userId = response.userId;
+
+        this.ApiService.setUserId(userId);
+        
+        this.ApiService.setToken(token)
+        
+        
+        console.log(userId);
+
         this.ApiService.setToken(token)
         this.ApiService.setUserId(userId)
+
         this.router.navigate(['/dashboard']);
       }
     )
