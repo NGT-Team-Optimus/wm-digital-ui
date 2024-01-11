@@ -37,7 +37,7 @@ export class OtpComponent implements OnInit {
       this.email = params['email'];
     });
     localStorage.setItem('email', this.email);
-   
+
   }
  
   ngOnInit(): void {
@@ -75,10 +75,10 @@ export class OtpComponent implements OnInit {
       this.errorMessage = 'Invalid OTP. Please try again.';
       this.showEnterOtpMessage();
       this.clearOtpFields();
-       if (this.digit1Input) {
-      this.digit1Input.nativeElement.focus();
-       }
-     
+      if (this.digit1Input) {
+        this.digit1Input.nativeElement.focus();
+      }
+
     }
   }
  
@@ -105,7 +105,7 @@ export class OtpComponent implements OnInit {
 }
  
  
- 
+
  
  
  

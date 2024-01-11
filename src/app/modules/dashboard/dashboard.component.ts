@@ -35,69 +35,58 @@ export class DashboardComponent implements OnInit {
       }
     );
 
-    this.ApiService.getUsername().subscribe(
-      (data: any) => {
-        const goal = data.goals;
-        this.goals = goal;
-        console.log(this.goals);
-        this.numberOfGoals = data.numberOfGoals;
-        const number1: number = this.numberOfGoals;
-        let sumOfFinancialValue = 0;
-        for (let i = 0; i < number1; i++) {
-          sumOfFinancialValue = this.goals[i].financialGoalValue + sumOfFinancialValue;
-        }
-        console.log("total sum " + sumOfFinancialValue);
-        let totalAmount = 0;
-        for (let i = 0; i < 5; i++) {
-          totalAmount = this.goals[i].totalAmount + totalAmount;
-        }
-        console.log("total amount " + totalAmount);
-        let percent: number = (totalAmount / sumOfFinancialValue) * 100;
-        console.log("total percentage " + percent);
-        let floatPercnt: number = parseFloat(percent.toFixed(2));
-        this.percentage = floatPercnt;
-        const holding_amount = "Holding amount: $" + totalAmount;
-        this.holding = holding_amount; //holding amount =  total funds - invested amount(means total amount here)
-        const title1 = " " + this.percentage;
-        this.title = title1;
+      this.ApiService.getUsername().subscribe(
+        (data: any) => {
+         const  goal = data.goals;
+         this.goals = goal;
+          this.numberOfGoals = data.numberOfGoals;
+          const number1 : number= this.numberOfGoals;
+          let sumOfFinancialValue =0;
+          for (let i=0; i< number1; i++ ){
+            sumOfFinancialValue= this.goals[i].financialGoalValue+sumOfFinancialValue;
+          }
+          
+          let totalAmount = 0;
+          for ( let i=0; i<5; i++){
+            totalAmount = this.goals[i].totalAmount + totalAmount;
+          }
 
-        const totalamountSTG = data.totalAmountOfShortTermGoals;
-        console.log("total short term amount " + totalamountSTG);
+          let percent: number = (totalAmount/sumOfFinancialValue)*100;
+         
+          let floatPercnt: number = parseFloat(percent.toFixed(2));
+          this.percentage = floatPercnt;
+          const holding_amount = "Holding amount: $"+totalAmount;
+          this.holding = holding_amount; //holding amount =  total funds - invested amount(means total amount here)
+          const title1 = " "+this.percentage;
+          this.title = title1;
 
-        const totalamountMTG = data.totalAmountOfMidTermGoals;
-        console.log("total mid term amount " + totalamountMTG);
+          const totalamountSTG = data.totalAmountOfShortTermGoals;
+          
+          const totalamountMTG = data.totalAmountOfMidTermGoals;
+          
+          const totalamountLTG = data.totalAmountOfLongTermGoals;
+         
+          const totalFGVofSTG = data.totalFinancialGoalValuesOfShortTermGoals;
+          
+          const totalFGVofMTG = data.totalFinancialGoalValuesOfMidTermGoals;
+         
+          const totalFGVofLTG = data.totalFinancialGoalValuesOfLongTermGoals;
+        
+          let percentS: number = (totalamountSTG/totalFGVofSTG)*100;
+          let floatPercentS: number = parseFloat(percentS.toFixed(0));
+          this.percentageS = floatPercentS;
+          this.titleS = ""+ this.percentageS;
 
-        const totalamountLTG = data.totalAmountOfLongTermGoals;
-        console.log("total long term amount " + totalamountLTG);
+          let percentM: number = (totalamountMTG/totalFGVofMTG)*100;
+          let floatPercentM: number = parseFloat(percentM.toFixed(0));
+          this.percentageM = floatPercentM;
+          this.titleM = ""+this.percentageM;
 
-        const totalFGVofSTG = data.totalFinancialGoalValuesOfShortTermGoals;
-        console.log("total financial goal short " + totalFGVofSTG);
-
-        const totalFGVofMTG = data.totalFinancialGoalValuesOfMidTermGoals;
-        console.log("total financial goal mid " + totalFGVofMTG);
-
-        const totalFGVofLTG = data.totalFinancialGoalValuesOfLongTermGoals;
-        console.log("total financial goal long " + totalFGVofLTG);
-
-        console.log("percentages before cal " + this.percentageS);
-
-        let percentS: number = (totalamountSTG / totalFGVofSTG) * 100;
-        let floatPercentS: number = parseFloat(percentS.toFixed(0));
-        this.percentageS = floatPercentS;
-        console.log("short term percentage " + floatPercentS);
-        this.titleS = "" + this.percentageS;
-
-        let percentM: number = (totalamountMTG / totalFGVofMTG) * 100;
-        let floatPercentM: number = parseFloat(percentM.toFixed(0));
-        this.percentageM = floatPercentM;
-        console.log("mid term percentage " + floatPercentM);
-        this.titleM = "" + this.percentageM;
-
-        let percentL: number = (totalamountLTG / totalFGVofLTG) * 100;
-        let floatPercentL: number = parseFloat(percentL.toFixed(0));
-        this.percentageL = floatPercentL;
-        console.log("Long term percentage " + floatPercentL);
-        this.titleL = "" + this.percentageL;
+          let percentL: number = (totalamountLTG/totalFGVofLTG)*100;
+          let floatPercentL: number = parseFloat(percentL.toFixed(0));
+          this.percentageL = floatPercentL;
+          this.titleL =""+this.percentageL;
+         
 
       }
     );
