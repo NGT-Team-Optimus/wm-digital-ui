@@ -52,14 +52,14 @@ import { NotificationsComponent } from './modules/notifications/notifications.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // MatInputModule,
+  
     CommonModule,
     FormsModule,
     RouterModule.forRoot([]),
-    // RouterModule,
+   
     MatFormFieldModule,
 
-    // MatFormFieldModule,
+   
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -67,9 +67,9 @@ import { NotificationsComponent } from './modules/notifications/notifications.co
     HttpClientModule,
 
     FormsModule,
-    ReactiveFormsModule,
+    
 
-    // BrowserAnimationsModule
+  
 
     NgCircleProgressModule.forRoot({
       "backgroundStrokeWidth": 0,

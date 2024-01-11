@@ -70,7 +70,7 @@ export class ApiService implements OnInit {
     const url = `${this.baseUrl}/addGoals`;
 
 
-    const url = `http://localhost:8082/addGoals`;
+  
 
     return this.http.post(url, userAndGoals);
   }
@@ -84,8 +84,7 @@ export class ApiService implements OnInit {
     return this.http.post<any>('http://localhost:8082/addGoals', { userId, goals: selectedGoals })
 
 
-    return this.http.post<any>(`${this.baseUrl}/addGoals`, { userId, goals: selectedGoals })
-
+   
   }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)

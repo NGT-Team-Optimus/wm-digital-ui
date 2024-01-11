@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -26,13 +25,7 @@ export class LoginComponent implements OnInit {
         
         this.ApiService.setToken(token)
         
-        
-        console.log(userId);
-
-        this.ApiService.setToken(token)
-        this.ApiService.setUserId(userId)
-
-        this.router.navigate(['/dashboard']);
+       this.router.navigate(['/dashboard']);
       }
     )
   }

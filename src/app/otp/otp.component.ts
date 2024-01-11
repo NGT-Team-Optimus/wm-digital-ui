@@ -101,27 +101,26 @@ export class OtpComponent implements OnInit {
       nextInputRef.nativeElement.focus();
     }
   }
-<<<<<<<<< Temporary merge branch 1
-
-}
-
-
-
-======
- 
-}
- 
- 
-
- 
- 
- 
- 
- 
- 
 
 
 }
+
+
+
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
 
 
 
