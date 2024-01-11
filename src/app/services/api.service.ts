@@ -48,37 +48,48 @@ export class ApiService implements OnInit {
 
 
 
-    getAllUsers(): Observable < GoalModel[] > {
-      return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
-    }
-    goalDurationS(): Observable < GoalModel[] > {
-      return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);
-      return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);
-    }
-    goalDurationM(): Observable < GoalModel[] > {
-      return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/midTerm`);
-      return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/midTerm`);
-    }
-    goalDurationL(): Observable < GoalModel[] > {
-      return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/longTerm`);
-      return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/longTerm`);
-    }
-    addGoalsByUser(userAndGoals: any): Observable < any > {
-      const url = `http://localhost:8082/addGoals`;
-      return this.http.post(url, userAndGoals);
-    }
+  getAllUsers(): Observable<GoalModel[]> {
+    return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
 
-    generateToken(request: any): Observable < any > {
-      return this.http.post('http://localhost:8082/user/signin', request);
-      return this.http.post('http://localhost:8082/user/signin', request);
-    }
-    saveGoals(userId: string, selectedGoals: GoalModel[]): Observable < any > {
-      const data = { userId, selectedGoals };
-      return this.http.post<any>('http://localhost:8082/addGoals', { userId, goals: selectedGoals })
-    }
-    getUsername(): Observable < any > {
-      return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
-    }
+
+    
+
+  }
+  goalDurationS(): Observable<GoalModel[]> {
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);
+  }
+  goalDurationM(): Observable<GoalModel[]> {
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/midTerm`);
+  }
+  goalDurationL(): Observable<GoalModel[]> {
+    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/longTerm`);
+  }
+  addGoalsByUser(userAndGoals: any): Observable<any> {
+
+
+    const url = `${this.baseUrl}/addGoals`;
+
+
+    const url = `http://localhost:8082/addGoals`;
+
+    return this.http.post(url, userAndGoals);
+  }
+
+  generateToken(request: any): Observable<any> {
+    return this.http.post('http://localhost:8082/user/signin', request);
+  }
+  saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
+    const data = { userId, selectedGoals };
+
+    return this.http.post<any>('http://localhost:8082/addGoals', { userId, goals: selectedGoals })
+
+
+    return this.http.post<any>(`${this.baseUrl}/addGoals`, { userId, goals: selectedGoals })
+
+  }
+  getUsername(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
+  }
 
     getFundValue(): Observable < Fund[] > {
       return this.http.get<Fund[]>(`${this.baseUrl}/getAllAvailableFunds`);

@@ -1,3 +1,4 @@
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Output,EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -47,4 +48,10 @@ newPassword: string = '';
       }
     );
   }
+
 }
+
+
+
+}
+

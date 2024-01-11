@@ -104,6 +104,7 @@ const routes: Routes = [
     path: 'goals/:category',
     component: GoalsComponent
 
+
   },
 
   {path: 'otp', component: OtpComponent},

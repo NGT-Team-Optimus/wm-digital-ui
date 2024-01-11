@@ -41,7 +41,12 @@ import { NotificationsComponent } from './modules/notifications/notifications.co
     LoginHeaderComponent,
     NotificationsComponent,
     Signup2Component,
+
+    
+    
+
     FundComponent,
+
   ],
 
   imports: [

@@ -25,7 +25,13 @@ export class LoginComponent implements OnInit {
         this.ApiService.setUserId(userId);
         
         this.ApiService.setToken(token)
+        
+        
+        console.log(userId);
+
+        this.ApiService.setToken(token)
         this.ApiService.setUserId(userId)
+
         this.router.navigate(['/dashboard']);
       }
     )

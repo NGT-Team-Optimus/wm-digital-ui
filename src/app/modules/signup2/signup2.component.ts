@@ -49,7 +49,7 @@ export class Signup2Component {
 
   ssnIsPatternError() {
     return this.userSSN?.hasError('pattern') && this.userSSN?.touched;
-    return this.userSSN?.hasError('pattern') && this.userSSN?.touched;
+
   }
 
   ngOnInit() {
@@ -61,6 +61,7 @@ export class Signup2Component {
       localStorage.setItem('email', this.form.value.email);
       localStorage.setItem('password', this.form.value.password);
       localStorage.setItem('userSSN', this.form.value.userSSN);
+
       localStorage.setItem('username', this.name);
       const formData = this.form.value;
  
