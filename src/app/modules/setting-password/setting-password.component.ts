@@ -34,7 +34,7 @@ newPassword: string = '';
         console.log(result); // Log the response to the console
  
         if (result.includes('Password has changed successfully')) {
-          alert("Password change successful");
+          // alert("Password change successful");
           localStorage.removeItem('email');
           localStorage.removeItem('token');
           this.router.navigate(['/dashboard']);
