@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit {
 redirectToSignup2() {
   console.log('Button clicked!');
   localStorage.setItem('name', this.yourForm.value.name);
-  this.router.navigate(['/signup2']);
+  this.router.navigate(['/signUp2']);
 }
 
 

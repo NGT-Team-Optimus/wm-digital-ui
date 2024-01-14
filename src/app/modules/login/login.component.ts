@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
         const userId = response.userId;
         this.ApiService.setToken(token)
         this.ApiService.setUserId(userId)
+        localStorage.setItem('useridd',userId);
         this.router.navigate(['/dashboard']);
       }
     )
