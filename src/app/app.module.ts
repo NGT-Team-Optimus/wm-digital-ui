@@ -20,8 +20,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
 import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FundComponent } from './fund-managment/fund/fund.component';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -38,30 +41,27 @@ import { CommonModule } from '@angular/common';
     OtpComponent,
     SettingPasswordComponent,
     LoginHeaderComponent,
-
     NotificationsComponent,
-
     Signup2Component,
-    
-
-
+    FundComponent,
   ],
-   
+
   imports: [
     BrowserModule,
     AppRoutingModule,
-
- 
-   CommonModule,
-
+    // MatInputModule,
+    CommonModule,
     FormsModule,
     RouterModule.forRoot([]),
     // RouterModule,
     MatFormFieldModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
     HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule,
 
@@ -91,8 +91,9 @@ import { CommonModule } from '@angular/common';
       "animationDuration": 1000,
       "showUnits": true,
       "showBackground": false,
-      "lazy": true}),
-  
+      "lazy": true
+    }),
+
 
     objectiveModule
   ],

@@ -17,8 +17,14 @@ import { LoginHeaderComponent } from './layout/login-header/login-header.compone
 import { AuthGaurdService } from './services/auth-gaurd.service';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { Signup2Component } from './modules/signup2/signup2.component';
+
 import { GoalOnboardingComponent } from './objectives/goal-onboarding/goal-onboarding.component';
 import { ChildrenEducationComponent } from './objectives/children-education/children-education.component';
+
+import { FundComponent } from './fund-managment/fund/fund.component';
+
+
+
 
 
 const routes: Routes = [
@@ -64,6 +70,8 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: DashboardComponent }],
     canActivate: [AuthGaurdService]
+
+
   },
 
   {
@@ -72,13 +80,18 @@ const routes: Routes = [
     children: [{path: '', component: NotificationsComponent}],
     canActivate : [AuthGaurdService]
     
+
   },
   {
     path: 'portfolio',
     component: MainComponent,
 
     children: [{ path: '', component: PortfolioComponent }],
+
     canActivate: [AuthGaurdService]
+
+    // canActivate: [AuthGaurdService]
+
 
   },
 
@@ -93,10 +106,15 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: GoalSettingComponent }]
   },
-
+  {
+    path: 'fund',
+    component: MainComponent,
+    children: [{ path: '', component: FundComponent }]
+  },
   {
     path: 'goals/:category',
     component: GoalsComponent
+
   }
   ,{
     path:'goalonboarding',
@@ -107,6 +125,16 @@ const routes: Routes = [
     path:'children-education/:goalid',
     component:ChildrenEducationComponent
   }
+
+  },
+  { path: 'otp', component: OtpComponent },
+
+  { path: 'newpassword', component: SettingPasswordComponent },
+
+  { path: 'signup', component: SignUpComponent },
+
+  { path: 'signup2', component: Signup2Component }
+
 
 ];
 
