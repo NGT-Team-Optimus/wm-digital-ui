@@ -18,7 +18,13 @@ export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
+
+  private goalId :string |null;
+ 
+  public url2= "http://localhost:8080";
+
   private baseUrl = 'http://localhost:8080';
+
 
 
 
@@ -37,6 +43,7 @@ export class ApiService implements OnInit {
   getUserId(): string | null {
     return this.userId
   }
+
   getAllUsers(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`${this.baseUrl}/goals/get`);
 
@@ -48,6 +55,16 @@ export class ApiService implements OnInit {
 
 
 
+  setgoalId(goalId: any){
+    this.goalId = goalId;
+    localStorage.setItem('userId2', goalId);
+  }
+  getgoalId(): string | null {
+    return this.goalId;
+  }
+  getAllUsers(): Observable<GoalModel[]> {
+    console.log('Inside service')
+    return this.http.get<GoalModel[]>(`${this.url2}/goals/get`);
 
   getAllUsers(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
@@ -110,6 +127,16 @@ export class ApiService implements OnInit {
   isLoggedIn(): boolean {
     return !!this.token;
     return !!this.userId;
+  }
+
+  retrievegoals(userid:any,goalid:any,duration:any,financialGoalValue:any, userAndGoals:any):Observable<any>
+  {
+    console.log("service")
+    console.log(userid)
+    console.log(financialGoalValue)
+    console.log(duration)
+    return this.http.put(`${this.url2}/updateGoalDetails/${userid}/${goalid}?duration=${duration}&financialGoalValue=${financialGoalValue}`, userAndGoals);
+
   }
 
 
