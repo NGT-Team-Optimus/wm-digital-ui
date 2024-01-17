@@ -1,12 +1,19 @@
 export class GoalModel {
 
+
+    duration: any;
+    financialGoalValue: any;
+   
+  
+
     goalId!: number;
     goalName!: string;
-    duration!: string;
-    financialGoalValue!: number;
+   
+ 
     isSelected!: boolean;
     id!: number;
     name!: string;
+
 
 
 

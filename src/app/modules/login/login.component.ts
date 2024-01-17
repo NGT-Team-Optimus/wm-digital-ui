@@ -24,8 +24,10 @@ export class LoginComponent implements OnInit {
         this.ApiService.setUserId(userId);
         
         this.ApiService.setToken(token)
+
         
        this.router.navigate(['/dashboard']);
+
       }
     )
   }

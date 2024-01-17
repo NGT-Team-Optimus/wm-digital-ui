@@ -17,7 +17,12 @@ import { LoginHeaderComponent } from './layout/login-header/login-header.compone
 import { AuthGaurdService } from './services/auth-gaurd.service';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
 import { Signup2Component } from './modules/signup2/signup2.component';
+
+import { GoalOnboardingComponent } from './objectives/goal-onboarding/goal-onboarding.component';
+import { ChildrenEducationComponent } from './objectives/children-education/children-education.component';
+
 import { FundComponent } from './fund-managment/fund/fund.component';
+
 
 
 
@@ -52,6 +57,12 @@ const routes: Routes = [
     path: 'signUp',
     component: MainComponent,
     children: [{ path: '', component: SignUpComponent }]
+  },
+
+  {
+    path: 'signUp2',
+    component: MainComponent,
+    children: [{ path: '', component: Signup2Component }]
   },
 
   {
@@ -105,6 +116,19 @@ const routes: Routes = [
     component: GoalsComponent
 
 
+
+  }
+  ,{
+    path:'goalonboarding',
+    component:GoalOnboardingComponent
+  }
+  ,
+  {
+    path:'children-education/:goalid',
+    component:ChildrenEducationComponent
+  }
+
+
   },
 
   {path: 'otp', component: OtpComponent},
@@ -114,6 +138,7 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
 
   {path: 'signup2', component: Signup2Component}
+
 
 
 

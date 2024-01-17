@@ -20,9 +20,9 @@ export class SignUpComponent implements OnInit {
   
 }
 redirectToSignup2() {
-  console.log('Button clicked!');
   localStorage.setItem('username', this.yourForm.value.username);
   this.router.navigate(['/signup2']);
+
 }
 
 
@@ -35,15 +35,7 @@ steps = [' 1', ' 2', ' 3'];
       this.currentStep++;
     }
   }
- 
-redirectToSignup() {
-    localStorage.setItem('name', this.yourForm.value.name);
-    this.router.navigate(['/signup']);
- 
- 
- 
- 
-  }
+
 }
 
 
