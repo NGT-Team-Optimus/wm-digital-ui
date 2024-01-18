@@ -21,9 +21,9 @@
       <p class="p">Let's get to know each other!</p> <br><br><br>
       <form [formGroup]="yourForm">
          <label style="color: #483699;">What's your name?</label><br>
-         <input type="name" id="name" formControlName="name" auto-complete="" placeholder=""
+         <input type="username" id="username" formControlName="username" auto-complete="" placeholder=""
              style="border: none; border-bottom: 1px solid black; color: #483699;" required />
-         <div *ngIf="yourForm?.get('name')?.touched && yourForm?.get('name')?.hasError('required')"
+         <div *ngIf="yourForm?.get('username')?.touched && yourForm?.get('username')?.hasError('required')"
              style="color: red;font-size: 40px;margin-top: 20px;margin-left: 10px;">
              Name is required.
          </div>

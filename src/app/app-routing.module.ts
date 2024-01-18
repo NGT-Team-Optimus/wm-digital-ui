@@ -115,6 +115,8 @@ const routes: Routes = [
     path: 'goals/:category',
     component: GoalsComponent
 
+
+
   }
   ,{
     path:'goalonboarding',
@@ -126,14 +128,19 @@ const routes: Routes = [
     component:ChildrenEducationComponent
   }
 
-  },
-  { path: 'otp', component: OtpComponent },
 
-  { path: 'newpassword', component: SettingPasswordComponent },
+  },
+
+  {path: 'otp', component: OtpComponent},
+
+  {path:'newpassword',component:SettingPasswordComponent},
 
   { path: 'signup', component: SignUpComponent },
 
-  { path: 'signup2', component: Signup2Component }
+  {path: 'signup2', component: Signup2Component}
+
+
+
 
 
 ];
