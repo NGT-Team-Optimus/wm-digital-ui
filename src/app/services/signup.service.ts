@@ -9,9 +9,9 @@ export class SignupService {
 
 
   constructor(private http: HttpClient) { }
-    register(formData: any): Observable<any> {
-      const backendUrl = 'http://localhost:8082/user/signup';
-   
-      return this.http.post(backendUrl, formData);
-    }
+  register(username: string, email: string, password: string, userSSN: string): Observable<any> {
+    return this.http.post('http://localhost:8082/user/signup', { username, email, password, userSSN });
+
+
   }
+}

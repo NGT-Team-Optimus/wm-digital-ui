@@ -8,14 +8,17 @@ import { SignupService } from 'src/app/services/signup.service';
   styleUrls: ['./signup2.component.scss']
 })
 export class Signup2Component {
+  name: string;
 
   form: FormGroup;
+
 
   constructor(private fb: FormBuilder, private router: Router, private signupService: SignupService) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       userSSN: ['', [Validators.required, Validators.pattern(/^\d{12}$/), Validators.pattern(/^[0-9]+$/)]],
+      // name: ['', [Validators.required]]
     });
   }
   // get userId() { return this.form.get('userId'); }
@@ -47,15 +50,26 @@ export class Signup2Component {
     return this.userSSN?.hasError('pattern') && this.userSSN?.touched;
   }
 
+  ngOnInit() {
+    this.name = localStorage.getItem('username');
+  }
+
   onSubmit() {
+
     if (this.form.valid) {
 
       localStorage.setItem('email', this.form.value.email);
       localStorage.setItem('password', this.form.value.password);
       localStorage.setItem('userSSN', this.form.value.userSSN);
-      const formData = this.form.value;
+      localStorage.setItem('username', this.name);
 
-      this.signupService.register(formData).subscribe(
+      const formData = this.form.value;
+      const username = localStorage.getItem('username');
+      const email = localStorage.getItem('email');
+      const password = localStorage.getItem('password');
+      const userSSN = localStorage.getItem('userSSN');
+
+      this.signupService.register(username, email, password, userSSN).subscribe(
         (response) => {
 
 
