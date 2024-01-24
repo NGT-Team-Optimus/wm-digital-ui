@@ -15,13 +15,13 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.yourForm = this.fb.group({
-      username: ['', [Validators.required]],
+      name: ['', [Validators.required]],
     });
 
   }
   redirectToSignup2() {
-
-    localStorage.setItem('username', this.yourForm.value.username);
+    console.log('Button clicked!');
+    localStorage.setItem('name', this.yourForm.value.name);
     this.router.navigate(['/signup2']);
   }
 
@@ -36,7 +36,14 @@ export class SignUpComponent implements OnInit {
     }
   }
 
+  redirectToSignup() {
+    localStorage.setItem('name', this.yourForm.value.name);
+    this.router.navigate(['/signup']);
 
+
+
+
+  }
 }
 
 

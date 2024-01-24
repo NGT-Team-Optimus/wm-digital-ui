@@ -1,12 +1,11 @@
+
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { ActivatedRoute, Router } from '@angular/router';
-import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
-
-
-
-
-
+// import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-setting-password',
@@ -15,11 +14,15 @@ import { ForgotpasswordService } from 'src/app/services/forgotpassword.service';
 })
 export class SettingPasswordComponent implements OnInit {
   newPassword: string = '';
-  email: string = '';
-  code: string = '';
+  // Initialize with an empty strin // Initialize with an empty string
+  token: string = '';
+  // generatedOTP: string = '';
+  email: any = localStorage.getItem('email');
+  code: any = localStorage.getItem('token');
+
 
   constructor(
-    private userService: ForgotpasswordService,
+    private userService: ApiService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -50,3 +53,8 @@ export class SettingPasswordComponent implements OnInit {
     );
   }
 }
+
+
+
+
+

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SignupService } from 'src/app/services/signup.service';
+import { ApiService } from 'src/app/services/api.service';
+// import { SignupService } from 'src/app/services/signup.service';
 @Component({
   selector: 'app-signup2',
   templateUrl: './signup2.component.html',
@@ -11,9 +12,9 @@ export class Signup2Component {
   name: string;
 
   form: FormGroup;
+  name: string;
 
-
-  constructor(private fb: FormBuilder, private router: Router, private signupService: SignupService) {
+  constructor(private fb: FormBuilder, private router: Router, private signupService: ApiService) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -44,10 +45,12 @@ export class Signup2Component {
 
   ssnIsRequiredError() {
     return this.userSSN?.hasError('required') && this.userSSN?.touched;
+
   }
 
   ssnIsPatternError() {
     return this.userSSN?.hasError('pattern') && this.userSSN?.touched;
+
   }
 
   ngOnInit() {
