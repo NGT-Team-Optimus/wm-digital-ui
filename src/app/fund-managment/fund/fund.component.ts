@@ -32,5 +32,9 @@ export class FundComponent implements OnInit {
   onSubmit() {
     console.log(this.fundForm.value);
   }
+  onFundSelection(event: any) {
+    const selectedValue = event.target.value;
+    console.log('Selected Fund Id:', selectedValue);
+  }
 
 }

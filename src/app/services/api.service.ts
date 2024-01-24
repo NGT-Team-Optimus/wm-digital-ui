@@ -40,7 +40,7 @@ export class ApiService implements OnInit {
   getAllUsers(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`${this.baseUrl}/goals/get`);
 
-
+  }
   setUserId(userId: string): void {
     this.userId = userId;
     localStorage.setItem('userId', userId);
@@ -49,18 +49,15 @@ export class ApiService implements OnInit {
 
 
 
-  getAllUsers(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>('http://localhost:8082/goals/get');
 
-  }
   goalDurationS(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/shortTerm`);
   }
   goalDurationM(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/midTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/midTerm`);
   }
   goalDurationL(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/longTerm`);
+    return this.http.get<GoalModel[]>(`${this.baseUrl}/getGoals/${this.userId}/longTerm`);
   }
   addGoalsByUser(userAndGoals: any): Observable<any> {
 
@@ -70,7 +67,7 @@ export class ApiService implements OnInit {
   }
 
   generateToken(request: any): Observable<any> {
-    return this.http.post('http://localhost:8082/user/signin', request);
+    return this.http.post(`${this.baseUrl}/user/signin`, request);
   }
   saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
     const data = { userId, selectedGoals };
