@@ -11,116 +11,94 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class GoalOnboardingComponent implements OnInit {
 
-  constructor(private route:Router, private apiservice:ApiService) { }
+  constructor(private route: Router, private apiservice: ApiService) { }
 
   trueGoals: any[] = [];
-  goal:any
-  userid:User
-  goalid:GoalModel
-  duration:Date = new Date;
-  financialGoalValue:Number
-  selectgoal:any
-  currentgoalindex=0;
-  currentgoal:any
+  goal: any
+  userid: User
+  goalid: GoalModel
+  duration: number = new Date().getFullYear();
+  financialGoalValue: Number
+  selectgoal: any
+  currentgoalindex = 0;
+  currentgoal: any
 
-  originaldate : Date
+  originaldate: Date
+  // getImageSource(): string {
+  //   const imageSources: string[] = [
+  //     'assets/images/marriage.png',
+  //     'assets/images/ceducation.png',
+  //     'assets/images/car.png',
+  //     'assets/images/villa.png',
+  //     'assets/images/apartment.png',
+  //     'assets/images/buyland.png',
+  //     'assets/images/anniversary.png',
+  //     'assets/images/marrige.png',
+  //     'assets/images/bike.png',
+  //     'assets/images/enterprenuer.jpg',
+  //     'assets/images/family.png',
+  //     'assets/images/car.png',
+  //     'assets/images/bike.png',
+  //     'assets/images/buyland.png',
+  //     'assets/images/ceducation.png',
+  //     'assets/images/tour.png',
 
-  formatDate(date: Date): string {  
-       const year = date.getFullYear();  
-          const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
-              const day = (date.getDate()+1).toString().padStart(2, '0'); 
-                  return `${year}-${month}-${day}`;   }
-formatteddate :string
-newone:any
 
+  //     // ... add more image paths as needed
+  //   ];
 
+  //   // Ensure currentgoalindex is within the valid range
+  //   const index = Math.min(this.currentgoalindex, imageSources.length - 1);
 
+  //   return imageSources[index];
+  // }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = (date.getDate() + 1).toString().padStart(2, '0');
+    return `${year}`;
+  }
+  formatteddate: string
+  newone: any
 
   ngOnInit(): void {
 
     const selectedgoal = localStorage.getItem('goalsSelect');
-    //console.log(selectedgoal)
-    this.selectgoal=JSON.parse(selectedgoal)
-    console.log('Hello',(this.selectgoal));
-    for(var i=0;i<this.selectgoal.length;i++)
-    {
-      // console.log("iletrate",JSON.stringify(this.selectgoal[i].goalName))
-     // console.log(this.selectgoal[i].goalName);
-      // console.log(selectedgoal)
 
-    } 
-    this.currentgoal= this.selectgoal[this.currentgoalindex]
-    
-     }
-     routerto(){
-        this.route.navigate(['dashboard'])
-     }
+    this.selectgoal = JSON.parse(selectedgoal)
+    console.log('Hello', (this.selectgoal));
 
-  updategoal()
-  {
-    // const result :any[]=[]
-    // for(var i=0;i<=this.selectgoal.length;i++)
-    // {
-    //   console.log("iletrate",JSON.stringify(this.selectgoal[i].goalName))
-    //   result.push(JSON.stringify(this.selectgoal[i].goalName));
-    // }
-    // console.log("------",JSON.stringify(result));
-    // return result;
+    this.currentgoalindex = 0;
+    this.currentgoal = this.selectgoal[this.currentgoalindex]
 
   }
+  routerto() {
+    this.route.navigate(['login'])
+  }
 
+  save() {
 
-  save()
-  {
-    this.currentgoalindex= (this.currentgoalindex +1) % this.selectgoal.length;
-    this.currentgoal= this.selectgoal[this.currentgoalindex]
-    const goallid=this.currentgoal.goalId;
-    console.log(goallid)
-    console.log('Current gOal',this.currentgoal);
-    console.log('lets see',this.selectgoal[this.currentgoalindex])
-
-    const goalid= this.selectgoal[this.currentgoalindex].goalId
-    console.log(goalid)
-
-    for(let i=0;i<this.selectgoal.length;i++)
-    {
-      console.log(this.selectgoal[i])
-    }
-    
+    const currentGoalId = this.currentgoal.goalId;
     const userId = localStorage.getItem('userId');
-    console.log(userId)
-    
-    const userAndGoals = {
-      user: {
-        userId: userId,
-      },
-      goals: this.trueGoals,
-    };
-    console.log(this.duration )
-    this.originaldate = new Date(this.duration)
-    this.formatteddate = this.formatDate(this.originaldate);
-    // this.formatteddate = this.formatDate(this.duration);
-    console.log(this.formatteddate)
-    console.log((this.financialGoalValue))
-    this.apiservice.retrievegoals(userId, goalid, this.formatteddate, this.financialGoalValue, userAndGoals).subscribe((data)=>
-    {
-      console.log(data); 
-      console.log(JSON.stringify(data.numberOfGoals)) 
-      this.newone=JSON.stringify(data.numberOfGoals)
-      console.log(this.newone)
-    })
-    
-    console.log(this.selectgoal.length )
-    const newdata = this.selectgoal.length
-
-    console.log("Index",this.currentgoalindex)
-   
-    if(this.currentgoalindex==4)
-    {
+    const formattedDate = this.formatDate(new Date(this.duration));
+    this.trueGoals.push(this.currentgoal);
+    this.apiservice.retrievegoals(userId, currentGoalId, formattedDate, this.financialGoalValue, {
+      user: { userId: userId },
+      goals: this.trueGoals
+    }).subscribe((data) => {
+      console.log(data);
+      console.log(JSON.stringify(data.numberOfGoals));
+      this.newone = JSON.stringify(data.numberOfGoals);
+      console.log(this.newone);
+    });
+    this.currentgoalindex++;
+    if (this.currentgoalindex >= this.selectgoal.length) {
       this.routerto();
-    }
+    } else {
 
-    console.log(userAndGoals)
+      this.currentgoal = this.selectgoal[this.currentgoalindex];
+    }
   }
 
 }

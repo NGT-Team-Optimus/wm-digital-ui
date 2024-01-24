@@ -59,27 +59,27 @@ const routes: Routes = [
     children: [{ path: '', component: SignUpComponent }]
   },
 
-  {
-    path: 'signUp2',
-    component: MainComponent,
-    children: [{ path: '', component: Signup2Component }]
-  },
+  // {
+  //   path: 'signUp2',
+  //   component: MainComponent,
+  //   children: [{ path: '', component: Signup2Component }]
+  // },
 
   {
     path: 'dashboard',
     component: MainComponent,
-    children: [{ path: '', component: DashboardComponent }],
+    children: [
+      { path: '', component: DashboardComponent }
+    ],
     canActivate: [AuthGaurdService]
-
-
   },
 
   {
     path: 'notifications',
-    component : MainComponent,
-    children: [{path: '', component: NotificationsComponent}],
-    canActivate : [AuthGaurdService]
-    
+    component: MainComponent,
+    children: [{ path: '', component: NotificationsComponent }],
+    canActivate: [AuthGaurdService]
+
 
   },
   {
@@ -90,7 +90,7 @@ const routes: Routes = [
 
     canActivate: [AuthGaurdService]
 
-    // canActivate: [AuthGaurdService]
+
 
 
   },
@@ -118,30 +118,26 @@ const routes: Routes = [
 
 
   }
-  ,{
-    path:'goalonboarding',
-    component:GoalOnboardingComponent
+  , {
+    path: 'goalonboarding',
+    component: GoalOnboardingComponent
   }
   ,
   {
-    path:'children-education/:goalid',
-    component:ChildrenEducationComponent
-  }
-
-
+    path: 'children-education/:goalid',
+    component: ChildrenEducationComponent
   },
 
-  {path: 'otp', component: OtpComponent},
 
-  {path:'newpassword',component:SettingPasswordComponent},
+
+
+  { path: 'otp', component: OtpComponent },
+
+  { path: 'newpassword', component: SettingPasswordComponent },
 
   { path: 'signup', component: SignUpComponent },
 
-  {path: 'signup2', component: Signup2Component}
-
-
-
-
+  { path: 'signup2', component: Signup2Component }
 
 ];
 

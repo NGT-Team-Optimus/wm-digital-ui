@@ -2,28 +2,31 @@
     align-items: center;
     //height:10px;
 }
+
 .mobile-container {
- 
- 
-    max-width: 380px;
+
+
+    max-width: 430px;
     margin: 0 auto;
     padding: 2px;
     border: 1px solid #ccc;
     border-radius: 5px;
     align-items: center;
-    background-color: #D5CEF5;
+    background-color: #F8F5FE;
+    height: 900px;
 }
- 
+
 @media screen and (min-width: 600px) {
- 
- 
+
+
     .mobile-container {
- 
+
         padding: 20px;
         font-size: 1.2rem;
         align-items: center;
     }
 }
+
 // .mobile-container {
 //     max-width: 380px;
 //    // height:9000px;
@@ -48,48 +51,54 @@
 //     }
 // }
 
-.row{
-    border:0px;
+.row {
+    border: 0px;
     font: bold;
+    margin-top: 120px;
+
     //font-size: 5rem;
     // font-size:20px;
     // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     // color: #483699;
-.one{
-    margin-bottom: 20px;
-    width:5px;
-    height :5px;
-    border:1px ;
-    border-radius: 5%;
+    .one {
+        margin-bottom: 200px;
+        width: 5px;
+        height: 5px;
+        border: 1px;
+        border-radius: 5%;
+
+    }
 
 }
-   
-}
-.three{
-    width:150px;
-    border:none;
+
+.three {
+    width: 150px;
+    border: none;
     border-bottom: 2px solid black;
     margin-bottom: 10px;
-    font-size:1rem;
+    font-size: 1rem;
 
 }
-.row1{
 
-    color:#483699;
+.row1 {
+
+    color: #483699;
     margin-bottom: 10px;
     border-color: white;
+    margin-top: 20px;
     width: 76px;
-    height:27px;
-    text-align:left;
+    height: 27px;
+    text-align: left;
     font-size: 20px;
-font-family: 'Segoe UI', sans-serif;
-    font-weight:normal;    
-    
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: normal;
+
 }
-.btn{
+
+.btn {
     background-color: #684EDC;
-    color:white;
-   border: none;
+    color: white;
+    border: none;
     padding: 8px 25px;
     text-align: center;
     text-decoration: none;
@@ -97,18 +106,18 @@ font-family: 'Segoe UI', sans-serif;
     margin: 1px 2px;
     cursor: pointer;
     border-radius: 30px;
-    font-size:1rem;
-    margin-top:30px;
-    
-}
-.row2{
-    color:#483699;
-    margin-bottom: 10px;
-    margin-top:10px;
-    border:none;
-    text-align:left;
-    font-size: 20px;
-     height:27px; 
-font-family: 'Segoe UI';
+    font-size: 1rem;
+    margin-top: 30px;
+
 }
 
+.row2 {
+    color: #483699;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    height: 27px;
+    font-family: 'Segoe UI';
+}
