@@ -20,11 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { objectiveModule } from './objectives/objective.module';
 import { Signup2Component } from './modules/signup2/signup2.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { CommonModule } from '@angular/common';
 import { FundComponent } from './fund-managment/fund/fund.component';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
-import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-
 
 
 
@@ -43,19 +41,25 @@ import { MatInputModule } from '@angular/material/input';
     LoginHeaderComponent,
     NotificationsComponent,
     Signup2Component,
+
+    
+    
+
     FundComponent,
+
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // MatInputModule,
+  
     CommonModule,
     FormsModule,
     RouterModule.forRoot([]),
-    // RouterModule,
+   
     MatFormFieldModule,
 
+   
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -63,9 +67,9 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
 
     FormsModule,
-    ReactiveFormsModule,
+    
 
-    // BrowserAnimationsModule
+  
 
     NgCircleProgressModule.forRoot({
       "backgroundStrokeWidth": 0,
