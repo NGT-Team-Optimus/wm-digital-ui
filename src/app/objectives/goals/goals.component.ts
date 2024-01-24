@@ -38,8 +38,21 @@ export class GoalsComponent implements OnInit {
       'kids': 'kids.png',
       'vaccation': 'vaccation.png',
       'car': 'car.png',
-      'super cars': 'higher.png',
-      'Children Education': 'ceducation.png'
+      'super cars': 'car.png',
+      'children education': 'ceducation.png',
+      'villa': 'villa.png',
+      'buy land': 'buyland.png',
+      'apartment': 'apartment.png',
+      'marriage anniversary': 'marriage.png',
+      'tomorrowland': 'buyland.png',
+      'parent marriage anniversary': 'marrige.png',
+      'super bikes': 'bike.png',
+      'enterpreneurship': 'enterprenuer.jpg',
+      'superbike': 'bike.png',
+      'higher education': 'higher.png',
+      'family foreign tour': 'tour.png'
+
+
 
     };
     const imageFilename = imageMapping[goalName.toLowerCase()];

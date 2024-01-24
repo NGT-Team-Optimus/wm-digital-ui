@@ -59,11 +59,11 @@ const routes: Routes = [
     children: [{ path: '', component: SignUpComponent }]
   },
 
-  {
-    path: 'signUp2',
-    component: MainComponent,
-    children: [{ path: '', component: Signup2Component }]
-  },
+  // {
+  //   path: 'signUp2',
+  //   component: MainComponent,
+  //   children: [{ path: '', component: Signup2Component }]
+  // },
 
   {
     path: 'dashboard',
@@ -126,18 +126,18 @@ const routes: Routes = [
   {
     path: 'children-education/:goalid',
     component: ChildrenEducationComponent
-  }
-
-
   },
 
-{ path: 'otp', component: OtpComponent },
 
-{ path: 'newpassword', component: SettingPasswordComponent },
 
-{ path: 'signup', component: SignUpComponent },
 
-{ path: 'signup2', component: Signup2Component }
+  { path: 'otp', component: OtpComponent },
+
+  { path: 'newpassword', component: SettingPasswordComponent },
+
+  { path: 'signup', component: SignUpComponent },
+
+  { path: 'signup2', component: Signup2Component }
 
 ];
 

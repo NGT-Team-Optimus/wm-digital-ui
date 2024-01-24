@@ -9,7 +9,6 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./signup2.component.scss']
 })
 export class Signup2Component {
-  name: string;
 
   form: FormGroup;
   name: string;
@@ -19,7 +18,7 @@ export class Signup2Component {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       userSSN: ['', [Validators.required, Validators.pattern(/^\d{12}$/), Validators.pattern(/^[0-9]+$/)]],
-      // name: ['', [Validators.required]]
+      // userSSN: ['', [Validators.required, Validators.pattern(/^\d{12}$/), Validators.pattern(/^[0-9]+$/)]],
     });
   }
   // get userId() { return this.form.get('userId'); }
@@ -45,27 +44,23 @@ export class Signup2Component {
 
   ssnIsRequiredError() {
     return this.userSSN?.hasError('required') && this.userSSN?.touched;
-
+    return this.userSSN?.hasError('required') && this.userSSN?.touched;
   }
 
   ssnIsPatternError() {
     return this.userSSN?.hasError('pattern') && this.userSSN?.touched;
-
   }
 
   ngOnInit() {
     this.name = localStorage.getItem('username');
   }
-
   onSubmit() {
-
     if (this.form.valid) {
 
       localStorage.setItem('email', this.form.value.email);
       localStorage.setItem('password', this.form.value.password);
       localStorage.setItem('userSSN', this.form.value.userSSN);
       localStorage.setItem('username', this.name);
-
       const formData = this.form.value;
       const username = localStorage.getItem('username');
       const email = localStorage.getItem('email');
