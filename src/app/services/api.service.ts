@@ -23,6 +23,10 @@ export class ApiService implements OnInit {
 
   public url2 = "http://localhost:8082";
 
+  private baseUrl = 'http://localhost:8082';
+  private goalId: string | null;
+
+  public url2 = "http://localhost:8082";
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
     this.userId = localStorage.getItem('userId');
@@ -50,6 +54,7 @@ export class ApiService implements OnInit {
   getgoalId(): string | null {
     return this.goalId;
   }
+
   getAllUsers(): Observable<GoalModel[]> {
     return this.http.get<GoalModel[]>(`${this.baseUrl}/goals/get`);
 
@@ -65,6 +70,7 @@ export class ApiService implements OnInit {
   }
   addGoalsByUser(userAndGoals: any): Observable<any> {
     const url = `${this.baseUrl}/addGoals`;
+
     return this.http.post(url, userAndGoals);
   }
 
@@ -74,6 +80,7 @@ export class ApiService implements OnInit {
   saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
     const data = { userId, selectedGoals };
     return this.http.post<any>('http://localhost:8082/addGoals', { userId, goals: selectedGoals })
+
   }
   getUsername(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getUserGoalByUserId/${this.userId}`)
@@ -87,6 +94,30 @@ export class ApiService implements OnInit {
   getNotifications(): Observable<any> {
     return this.http.get(`${this.baseUrl}/notifications/user/${this.userId}/latest`);
   }
+
+  setToken(token: string): void {
+
+    this.token = token;
+    localStorage.setItem('token', token);
+  }
+
+  getToken(): string | null {
+    return this.token;
+  }
+
+  logout(): void {
+    this.token = null;
+    this.userId = null;
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.token;
+    return !!this.userId;
+  }
+
+
   retrievegoals(userid: any, goalid: any, duration: any, financialGoalValue: any, userAndGoals: any): Observable<any> {
     console.log("service")
     console.log(userid)
@@ -117,9 +148,25 @@ export class ApiService implements OnInit {
   }
 
 
+  getGeneratedOTP(email: string): Observable<string> {
+    return this.http.get<string>(`${this.baseUrl}/user/api/forget_password/${email}`);
+  }
 
+  // Define a method to initiate the forgot password process
+  forgotPassword(email: string): Observable<string> {
+    return this.http.get<string>(`${this.baseUrl}/user/api/forget_password/${email}`);
+  }
 
+  // Define a method to confirm a new password after forget password
+  confirmPassword(email: string, code: string, newPassword: string): Observable<any> {
+    const request = { email, code, newPassword };
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
+    return this.http.post(`${this.baseUrl}/user/api/confirm_password`, request, {
+      headers,
+      responseType: 'text'
+    });
+  }
 
 
   register(username: string, email: string, password: string, userSSN: string): Observable<any> {
@@ -135,9 +182,14 @@ export class ApiService implements OnInit {
     localStorage.setItem('token', token);
   }
 
+
   getToken(): string | null {
     return this.token;
   }
+
+  register(username: string, email: string, password: string, userSSN: string): Observable<any> {
+    return this.http.post('http://localhost:8082/user/signup', { username, email, password, userSSN });
+
 
   logout(): void {
     this.token = null;
@@ -146,10 +198,12 @@ export class ApiService implements OnInit {
     localStorage.removeItem('userId');
   }
 
+
   isLoggedIn(): boolean {
     return !!this.token;
     return !!this.userId;
-  }
 
+  }
+}
 
 }

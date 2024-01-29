@@ -11,24 +11,24 @@ export class SignUpComponent implements OnInit {
 
   yourForm!: FormGroup;
   showSignup: boolean = false;
-  constructor(private fb: FormBuilder, private router: Router ) {}
- 
+  constructor(private fb: FormBuilder, private router: Router) { }
+
   ngOnInit(): void {
-   this.yourForm = this.fb.group({
-   username: ['', [Validators.required]],
-  });  
-  
-}
-redirectToSignup2() {
-  localStorage.setItem('username', this.yourForm.value.username);
-  this.router.navigate(['/signup2']);
+    this.yourForm = this.fb.group({
+      username: ['', [Validators.required]],
+    });
 
-}
+  }
+  redirectToSignup2() {
+    localStorage.setItem('username', this.yourForm.value.username);
+    this.router.navigate(['/signup2']);
 
-
+  }
 
 
-steps = [' 1', ' 2', ' 3'];
+
+
+  steps = [' 1', ' 2', ' 3'];
   currentStep = 0;
   nextStep() {
     if (this.currentStep < this.steps.length - 1) {

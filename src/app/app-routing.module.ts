@@ -59,19 +59,19 @@ const routes: Routes = [
     children: [{ path: '', component: SignUpComponent }]
   },
 
-  {
-    path: 'signUp2',
-    component: MainComponent,
-    children: [{ path: '', component: Signup2Component }]
-  },
+  // {
+  //   path: 'signUp2',
+  //   component: MainComponent,
+  //   children: [{ path: '', component: Signup2Component }]
+  // },
 
   {
     path: 'dashboard',
     component: MainComponent,
-    children: [{ path: '', component: DashboardComponent }],
+    children: [
+      { path: '', component: DashboardComponent }
+    ],
     canActivate: [AuthGaurdService]
-
-
   },
 
   {
@@ -90,7 +90,7 @@ const routes: Routes = [
 
     canActivate: [AuthGaurdService]
 
-    // canActivate: [AuthGaurdService]
+
 
 
   },
@@ -129,6 +129,8 @@ const routes: Routes = [
   },
 
 
+
+
   { path: 'otp', component: OtpComponent },
 
   { path: 'newpassword', component: SettingPasswordComponent },
@@ -136,10 +138,6 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
 
   { path: 'signup2', component: Signup2Component }
-
-
-
-
 
 ];
 
