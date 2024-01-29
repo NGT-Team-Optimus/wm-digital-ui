@@ -86,6 +86,18 @@ export class DashboardComponent implements OnInit {
           let floatPercentL: number = parseFloat(percentL.toFixed(0));
           this.percentageL = floatPercentL;
           this.titleL =""+this.percentageL;
+          if(Number.isNaN(this.percentageL)){
+            this.percentageL = 0;
+            this.titleL =""+this.percentageL;
+          }
+          if(Number.isNaN(this.percentageM)){
+            this.percentageM = 0;
+            this.titleM =""+this.percentageM;
+          }
+          if(Number.isNaN(this.percentageS)){
+            this.percentageS = 0;
+            this.titleS =""+this.percentageS;
+          }
          
 
       }

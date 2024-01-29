@@ -76,7 +76,7 @@ th{
 }
 
 .img-note{
-    max-height: 82px;
+    max-height: 70px;
 }
 .img-note2{
     max-height: 113px;
@@ -85,6 +85,12 @@ th{
     width: 90px;
     height: 90px;
 }
+.globe{
+    width: 100px;
+    height: 100px;
+   
+}
+
 body{
     background-color: #F3EEFE;
     background-image: linear-gradient(#F3EEFE, #C391EE);
@@ -101,7 +107,7 @@ body{
 }
 .row1{
     
-    background-color:#A291EE;
+    background-color: #c6bbf3;
     padding-top: 10px;
     padding-bottom: 20px;
     padding-right: 20px;
@@ -132,7 +138,9 @@ body{
 .card-toggle img {
     margin: 10px; 
 }
-
+.col{
+    padding-right: 0px;
+}
  
  
 
