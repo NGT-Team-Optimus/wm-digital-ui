@@ -1,76 +1,83 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SignupService } from 'src/app/services/signup.service';
+import { ApiService } from 'src/app/services/api.service';
+
 @Component({
   selector: 'app-signup2',
   templateUrl: './signup2.component.html',
   styleUrls: ['./signup2.component.scss']
 })
-export class Signup2Component  {
+export class Signup2Component {
 
   form: FormGroup;
- 
-  constructor(private fb: FormBuilder, private router: Router,private signupService: SignupService) {
+
+  constructor(private fb: FormBuilder, private router: Router, private signupService: ApiService) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      ssn: ['', [Validators.required, Validators.pattern(/^\d{12}$/), Validators.pattern(/^[0-9]+$/)]],
+      userSSN: ['', [Validators.required, Validators.pattern(/^\d{12}$/), Validators.pattern(/^[0-9]+$/)]],
     });
   }
   // get userId() { return this.form.get('userId'); }
   get email() { return this.form.get('email'); }
   get password() { return this.form.get('password'); }
-  get ssn() { return this.form.get('ssn'); }
- 
+  get userSSN() { return this.form.get('userSSN'); }
+
   emailIsRequiredError() {
     return this.email?.hasError('required') && this.email?.touched;
   }
- 
+
   emailIsInvalidError() {
     return this.email?.hasError('email') && this.email?.touched;
   }
- 
+
   passwordIsRequiredError() {
     return this.password?.hasError('required') && this.password?.touched;
   }
- 
+
   passwordIsMinLengthError() {
     return this.password?.hasError('minlength') && this.password?.touched;
   }
- 
+
   ssnIsRequiredError() {
-    return this.ssn?.hasError('required') && this.ssn?.touched;
+    return this.userSSN?.hasError('required') && this.userSSN?.touched;
   }
- 
+
   ssnIsPatternError() {
-    return this.ssn?.hasError('pattern') && this.ssn?.touched;
+    return this.userSSN?.hasError('pattern') && this.userSSN?.touched;
   }
- 
+
   onSubmit() {
     if (this.form.valid) {
-      
+
       localStorage.setItem('email', this.form.value.email);
       localStorage.setItem('password', this.form.value.password);
-      localStorage.setItem('ssn', this.form.value.ssn);
+      localStorage.setItem('userSSN', this.form.value.userSSN);
       const formData = this.form.value;
- 
-      this.signupService.register(formData).subscribe(
+      const username = localStorage.getItem('name');
+      const email = localStorage.getItem('email');
+      const password = localStorage.getItem('password');
+      const userSSN = localStorage.getItem('userSSN');
+      this.signupService.register(username, email, password, userSSN).subscribe(
         (response) => {
-             
-          
-          console.log('Full Server Response:', response);const userId = response;console.log('Received User ID:', userId);          
-          
- 
+
+
+          console.log('Full Server Response:', response); 
+          const userId = response; 
+          console.log('Received User ID:', userId);
+
+
           localStorage.setItem('userId', userId);
- 
- 
- 
+
+          console.log(formData);
+
+
           console.log('Data sent to the backend successfully. User ID:', userId);
         },
         (error: any) => {
           console.error('Error sending data to the backend:', error);
- 
+
         }
       );
       console.log('Form submitted!');
@@ -80,27 +87,27 @@ export class Signup2Component  {
       console.log('Form has errors. Please fix them.');
     }
   }
- 
-
- 
- 
 
 
- steps = [' 1', ' 2', ' 3'];
+
+
+
+
+  steps = [' 1', ' 2', ' 3'];
   currentStep = 1;
- 
+
   nextStep() {
     if (this.currentStep < this.steps.length - 1) {
       this.currentStep++;
     }
   }
- 
+
   prevStep() {
     if (this.currentStep > 0) {
       this.currentStep--;
     }
-  
+
   }
- }
+}
 
 
