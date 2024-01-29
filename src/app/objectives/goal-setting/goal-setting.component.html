@@ -9,6 +9,7 @@
     <p style="color:#483699 ;">Current goals recommended for you. <br> Tap on 5 goals to proceed ahead</p>
     <div class="container">
         <div id="ck-button" *ngFor="let goals of goalModel">
+            <!-- <h3>{{goals.goalName}}</h3> -->
             <label>
                 <input type="checkbox" name="{{goals.goalName}}" [(ngModel)]="goals.isSelected"
                     [disabled]="countSelectedGoals() >= maxButtons && !goals.isSelected"><span>{{goals.goalName}}</span>
@@ -17,6 +18,7 @@
     </div>
     <div class="container2">
         <button class="skipbutton">Skip</button>
-        <button class="accountbutton" type="submit" (click)="addGoalsWithUserId()">Create Account</button>
+        <button class="accountbutton" type="submit" (click)="addGoalsWithUserId()" routerLink="/goalonboarding">Create
+            Account</button>
     </div>
 </div>

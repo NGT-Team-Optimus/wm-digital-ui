@@ -6,8 +6,11 @@ import { GoalModel } from 'src/app/interface/goal-model';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3fcbb80e7242474b5f1ff2fac6dc0e263ab312e1
 
 @Component({
   selector: 'app-goal-setting',
@@ -19,17 +22,31 @@ export class GoalSettingComponent implements OnInit {
   goalModel: GoalModel[] = []
   trueGoals: any[] = [];
   maxButtons = 5;
+<<<<<<< HEAD
   constructor(private apiService: ApiService,private router:Router) {
   }
+=======
+  selectedgoals:any
+  constructor(private apiService: ApiService, private route:Router) { }
+    
+  
+>>>>>>> 3fcbb80e7242474b5f1ff2fac6dc0e263ab312e1
 
   ngOnInit(): void {
     this.getAllGoals();
+    console.log(this.goalModel)
   }
 
   getAllGoals() {
+    console.log('insse')
     this.apiService.getAllUsers().subscribe(
-      (data) => { this.goalModel = data; }
+      (data) => 
+      { this.goalModel = data; console.log('data '+data)},
+      (error)=>{
+        console.log(error)
+      }
     );
+
     console.log(this.goalModel);
 
   }
@@ -43,8 +60,17 @@ export class GoalSettingComponent implements OnInit {
       goals: this.trueGoals,
     };
 
+    console.log("Goals",this.trueGoals);
+
     this.apiService.addGoalsByUser(userAndGoals).subscribe(
       (response) => {
+        console.log(response)
+        this.selectedgoals=response
+        console.log("SelectedGoals",this.selectedgoals)
+        // localStorage.setItem('selectedgoals', this.selectedgoals)
+
+
+
         console.log('Goals added successfully');
         this.router.navigate(['/dashboard']);
       },
@@ -52,7 +78,10 @@ export class GoalSettingComponent implements OnInit {
         console.error('Error adding goals', error);
       }
     );
+    localStorage.setItem('selectedgoals', JSON.stringify(userAndGoals))
+    localStorage.setItem('goalsSelect',JSON.stringify(this.trueGoals));
     console.log(userAndGoals);
+
   }
   onCheckboxChange(goalModel: GoalModel[]) {
     for (const goal of goalModel) {
@@ -61,7 +90,14 @@ export class GoalSettingComponent implements OnInit {
     }
   }
   countSelectedGoals(): number {
+    console.log(this.goalModel)
+    for(let i=0;i<this.goalModel.length;i++)
+    {
+      console.log(this.goalModel[i].goalName)
+    }
+
     return this.goalModel.filter((goal) => goal.isSelected).length;
+    console.log(this.goalModel)
   }
 
 }
