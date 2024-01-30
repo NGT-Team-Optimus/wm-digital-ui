@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
       this.currentStep++;
     }
   }
-<<<<<<< HEAD
+
  
 redirectToSignup() {
     localStorage.setItem('username', this.yourForm.value.name);
@@ -45,9 +45,7 @@ redirectToSignup() {
  
 
   }
-=======
 
->>>>>>> 3fcbb80e7242474b5f1ff2fac6dc0e263ab312e1
 }
 
 

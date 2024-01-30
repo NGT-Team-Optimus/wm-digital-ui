@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
       (data: any) => {
 
         this.name = data.user.username;
-        console.log(this.name);
+       // console.log(this.name);
         this.numberOfGoals = data.numberOfGoals;
       }
     );

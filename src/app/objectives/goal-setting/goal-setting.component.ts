@@ -6,11 +6,7 @@ import { GoalModel } from 'src/app/interface/goal-model';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 3fcbb80e7242474b5f1ff2fac6dc0e263ab312e1
 
 @Component({
   selector: 'app-goal-setting',
@@ -22,15 +18,14 @@ export class GoalSettingComponent implements OnInit {
   goalModel: GoalModel[] = []
   trueGoals: any[] = [];
   maxButtons = 5;
-<<<<<<< HEAD
-  constructor(private apiService: ApiService,private router:Router) {
-  }
-=======
+
+  
+
   selectedgoals:any
-  constructor(private apiService: ApiService, private route:Router) { }
+  constructor(private apiService: ApiService, private router:Router) { }
     
   
->>>>>>> 3fcbb80e7242474b5f1ff2fac6dc0e263ab312e1
+
 
   ngOnInit(): void {
     this.getAllGoals();
