@@ -1,21 +1,10 @@
-       
-
-<div>
-
-  <div class="login-app-container">
-    <img src="../../../assets/images/person.png" />
-    <img src="../../../assets/images/bank.png" class="img-bank"/>
-    <img src="../../../assets/images/money.png" class="img-money"/>
-    <img src="../../../assets/images/note.png" class="img-note"/>
-    <img src="../../../assets/images/path.svg" class="img-path"/>
-    <img src="../../../assets/images/line.svg" class="img-line" />
- </div>
-     
+    <div>
+      
     <h1>OTP Verification</h1>
-   
-     <p *ngIf="generatedOTP">OTP: {{ generatedOTP }}</p>
-     <form (ngSubmit)="verifyOtp()" #otpForm="ngForm">
-     
+    
+     <p *ngIf="generatedOTP">OTP: {{ generatedOTP }}</p> 
+     <form (ngSubmit)="verifyOtp()" #otpForm="ngForm"> 
+      
       <label>Enter Code</label>
       <div class="otp-input-container">
         <input type="text" class="otp-input" [(ngModel)]="digit1" name="digit1" maxlength="1" required id="digit1" #digit1Input (input)="focusNextInput(1)">
@@ -26,7 +15,7 @@
        
        <div class="validation1">
        <br><br>
-        <div *ngIf="showMessage && errorMessage">
+        <div *ngIf="showMessage && errorMessage"> 
            <span style="color: red;">{{ errorMessage }}</span>
         </div>
    </div>

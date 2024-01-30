@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-goal-setting',
   templateUrl: './goal-setting.component.html',
@@ -17,10 +18,14 @@ export class GoalSettingComponent implements OnInit {
   goalModel: GoalModel[] = []
   trueGoals: any[] = [];
   maxButtons = 5;
+
+  
+
   selectedgoals:any
-  constructor(private apiService: ApiService, private route:Router) { }
+  constructor(private apiService: ApiService, private router:Router) { }
     
   
+
 
   ngOnInit(): void {
     this.getAllGoals();
@@ -62,6 +67,7 @@ export class GoalSettingComponent implements OnInit {
 
 
         console.log('Goals added successfully');
+        this.router.navigate(['/dashboard']);
       },
       (error) => {
         console.error('Error adding goals', error);

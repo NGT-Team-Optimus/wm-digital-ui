@@ -28,8 +28,6 @@ export class GoalsComponent implements OnInit {
   }
 
 
-
-
   goals: GoalModel[] = [];
   getImagePath(goalName: string): string {
     const imageMapping: { [key: string]: string } = {

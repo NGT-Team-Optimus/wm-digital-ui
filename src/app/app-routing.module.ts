@@ -72,6 +72,8 @@ const routes: Routes = [
       { path: '', component: DashboardComponent }
     ],
     canActivate: [AuthGaurdService]
+
+
   },
 
   {
