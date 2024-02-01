@@ -98,7 +98,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'goals',
+    path: 'goals/:category',
     component: MainComponent,
     children: [{ path: '', component: GoalsComponent }]
   },
@@ -113,14 +113,13 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: '', component: FundComponent }]
   },
+  /*
   {
     path: 'goals/:category',
     component: GoalsComponent
-
-
-
-  }
-  , {
+  }, 
+  */
+  {
     path: 'goalonboarding',
     component: GoalOnboardingComponent
   }

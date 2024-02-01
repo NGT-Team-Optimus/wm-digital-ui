@@ -17,7 +17,7 @@
                     </button>
                     <p *ngIf="currentHeading === 1">Short term goal</p>
                     <p *ngIf="currentHeading === 2">Midterm goal</p>
-                    <p *ngIf="currentHeading === 3">longterm goal</p>
+                    <p *ngIf="currentHeading === 3">Longterm goal</p>
 
                     <button (click)=" forwardButton()" style="float: right;"><svg xmlns="http://www.w3.org/2000/svg"
                             width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill"
@@ -49,7 +49,7 @@
             <div class="col-8">
                 <h5 *ngIf="currentHeading === 1">Short term goal</h5>
                 <h5 *ngIf="currentHeading === 2">Midterm goal</h5>
-                <h5 *ngIf="currentHeading === 3">longterm goal</h5>
+                <h5 *ngIf="currentHeading === 3">Longterm goal</h5>
             </div>
             <div class="col-4">
                 <span class="svg"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
@@ -62,8 +62,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }"
-                    *ngFor="let goal of goals">
+                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }" *ngFor="let goal of goals">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
@@ -137,8 +136,11 @@
             </div>
         </div>
     </div>
-
-
-
-
+</div>
+<div class="card-toggle">
+    <div class="card-content">
+        <img routerLink="/dashboard" src="assets/images/inactivehome.png">
+         <img routerLink="/portfolio" src="assets/images/inactivegraph.png">
+        <img src="assets/images/activetarget.png">
+    </div>
 </div>
