@@ -14,10 +14,10 @@ export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8090';
   private goalId: string | null;
 
-  public url2 = "http://localhost:8082";
+  public url2 = "http://localhost:8090";
 
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
@@ -51,13 +51,13 @@ export class ApiService implements OnInit {
   }
 
   goalDurationS(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/shortTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8090/getGoals/${this.userId}/shortTerm`);
   }
   goalDurationM(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/midTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8090/getGoals/${this.userId}/midTerm`);
   }
   goalDurationL(): Observable<GoalModel[]> {
-    return this.http.get<GoalModel[]>(`http://localhost:8082/getGoals/${this.userId}/longTerm`);
+    return this.http.get<GoalModel[]>(`http://localhost:8090/getGoals/${this.userId}/longTerm`);
   }
   addGoalsByUser(userAndGoals: any): Observable<any> {
     const url = `${this.baseUrl}/addGoals`;
@@ -66,11 +66,11 @@ export class ApiService implements OnInit {
   }
 
   generateToken(request: any): Observable<any> {
-    return this.http.post('http://localhost:8082/user/signin', request);
+    return this.http.post('http://localhost:8090/user/signin', request);
   }
   saveGoals(userId: string, selectedGoals: GoalModel[]): Observable<any> {
 
-    return this.http.post<any>('http://localhost:8082/addGoals', { userId, goals: selectedGoals })
+    return this.http.post<any>('http://localhost:8090/addGoals', { userId, goals: selectedGoals })
 
   }
   getUsername(): Observable<any> {
@@ -138,7 +138,7 @@ export class ApiService implements OnInit {
   }
 
   register(username: string, email: string, password: string, userSSN: string): Observable<any> {
-    return this.http.post('http://localhost:8082/user/signup', { username, email, password, userSSN });
+    return this.http.post('http://localhost:8090/user/signup', { username, email, password, userSSN });
   }
  
 
