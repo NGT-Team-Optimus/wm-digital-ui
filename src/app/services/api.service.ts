@@ -14,7 +14,7 @@ export class ApiService implements OnInit {
 
   private token: string | null;
   private userId: string | null;
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8082';
   private goalId: string | null;
 
   public url2 = "http://localhost:8082";
@@ -94,19 +94,19 @@ export class ApiService implements OnInit {
   getToken(): string | null {
     return this.token;
   }
- 
+
   logout(): void {
     this.token = null;
     this.userId = null;
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
   }
- 
+
   isLoggedIn(): boolean {
     return !!this.token;
     return !!this.userId;
   }
- 
+
 
   retrievegoals(userid: any, goalid: any, duration: any, financialGoalValue: any, userAndGoals: any): Observable<any> {
     console.log("service")
@@ -140,6 +140,6 @@ export class ApiService implements OnInit {
   register(username: string, email: string, password: string, userSSN: string): Observable<any> {
     return this.http.post('http://localhost:8082/user/signup', { username, email, password, userSSN });
   }
- 
+
 
 }

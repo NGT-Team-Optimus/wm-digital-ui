@@ -28,6 +28,8 @@ export class GoalsComponent implements OnInit {
   }
 
 
+
+
   goals: GoalModel[] = [];
   getImagePath(goalName: string): string {
     const imageMapping: { [key: string]: string } = {
@@ -39,10 +41,10 @@ export class GoalsComponent implements OnInit {
       'super cars': 'car.png',
       'children education': 'ceducation.png',
       'villa': 'villa.png',
-      'buy land': 'buyland.png',
+      'buy land': 'buy land.png',
       'apartment': 'apartment.png',
       'marriage anniversary': 'marriage.png',
-      'tomorrowland': 'buyland.png',
+      'tomorrowland': 'buy land.png',
       'parent marriage anniversary': 'marrige.png',
       'super bikes': 'bike.png',
       'enterpreneurship': 'enterprenuer.jpg',

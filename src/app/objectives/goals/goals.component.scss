@@ -142,3 +142,26 @@
 .red-card {
     background-color: red;
 }
+
+.card-toggle {
+    margin-left: 130px;
+    position: fixed;
+    bottom: 50px;
+    height: 60px;
+    width: 150px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    // background-color: white;
+}
+
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-toggle img {
+    margin: 10px;
+}
