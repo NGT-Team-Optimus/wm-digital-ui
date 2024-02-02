@@ -36,25 +36,4 @@ export class SignUpComponent implements OnInit {
     }
   }
 
- 
-redirectToSignup() {
-    localStorage.setItem('username', this.yourForm.value.name);
-    this.router.navigate(['/signup']);
- 
- 
- 
-
-  }
-
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-goal-setting',
   templateUrl: './goal-setting.component.html',
@@ -18,13 +17,9 @@ export class GoalSettingComponent implements OnInit {
   goalModel: GoalModel[] = []
   trueGoals: any[] = [];
   maxButtons = 5;
+  selectedgoals: any
+  constructor(private apiService: ApiService, private route: Router) { }
 
-  
-
-  selectedgoals:any
-  constructor(private apiService: ApiService, private router:Router) { }
-    
-  
 
 
   ngOnInit(): void {
@@ -35,9 +30,8 @@ export class GoalSettingComponent implements OnInit {
   getAllGoals() {
     console.log('insse')
     this.apiService.getAllUsers().subscribe(
-      (data) => 
-      { this.goalModel = data; console.log('data '+data)},
-      (error)=>{
+      (data) => { this.goalModel = data; console.log('data ' + data) },
+      (error) => {
         console.log(error)
       }
     );
@@ -55,27 +49,28 @@ export class GoalSettingComponent implements OnInit {
       goals: this.trueGoals,
     };
 
-    console.log("Goals",this.trueGoals);
+    console.log("Goals", this.trueGoals);
 
     this.apiService.addGoalsByUser(userAndGoals).subscribe(
       (response) => {
         console.log(response)
-        this.selectedgoals=response
-        console.log("SelectedGoals",this.selectedgoals)
+        this.selectedgoals = response
+        console.log("SelectedGoals", this.selectedgoals)
         // localStorage.setItem('selectedgoals', this.selectedgoals)
 
 
 
         console.log('Goals added successfully');
-        this.router.navigate(['/dashboard']);
       },
       (error) => {
         console.error('Error adding goals', error);
       }
     );
     localStorage.setItem('selectedgoals', JSON.stringify(userAndGoals))
-    localStorage.setItem('goalsSelect',JSON.stringify(this.trueGoals));
+    localStorage.setItem('goalsSelect', JSON.stringify(this.trueGoals));
     console.log(userAndGoals);
+    this.route.navigate(['/goalonboarding']);
+
 
   }
   onCheckboxChange(goalModel: GoalModel[]) {
@@ -86,8 +81,7 @@ export class GoalSettingComponent implements OnInit {
   }
   countSelectedGoals(): number {
     console.log(this.goalModel)
-    for(let i=0;i<this.goalModel.length;i++)
-    {
+    for (let i = 0; i < this.goalModel.length; i++) {
       console.log(this.goalModel[i].goalName)
     }
 

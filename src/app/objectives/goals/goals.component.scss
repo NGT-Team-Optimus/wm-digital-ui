@@ -142,15 +142,23 @@
 .red-card {
     background-color: red;
 }
+
+
+
+
 .card-content {
     display: flex;
     flex-direction: row;
 }
- 
+
+
+
+
 .card-toggle img {
-    margin: 15px; 
+    margin: 15px;
 }
-.card-toggle{
+
+.card-toggle {
     margin-left: 130px;
     position: fixed;
     bottom: 50px;

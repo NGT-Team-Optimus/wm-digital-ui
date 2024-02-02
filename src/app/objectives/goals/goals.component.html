@@ -62,7 +62,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }" *ngFor="let goal of goals">
+                <div class="card" style="width: 20rem;" id="card1" [ngStyle]="{ 'background-color': currentColor }"
+                    *ngFor="let goal of goals">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
@@ -74,7 +75,7 @@
                                 <span class="triptext">$0</span>&nbsp;
                                 <span class="triptext">${{goal.financialGoalValue}}</span><br>
                                 <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="0"
+                                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
@@ -140,7 +141,7 @@
 <div class="card-toggle">
     <div class="card-content">
         <img routerLink="/dashboard" src="assets/images/inactivehome.png">
-         <img routerLink="/portfolio" src="assets/images/inactivegraph.png">
+        <img routerLink="/portfolio" src="assets/images/inactivegraph.png">
         <img src="assets/images/activetarget.png">
     </div>
 </div>

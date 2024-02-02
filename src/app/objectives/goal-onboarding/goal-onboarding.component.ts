@@ -17,8 +17,10 @@ export class GoalOnboardingComponent implements OnInit {
   goal: any
   userid: User
   goalid: GoalModel
-  duration: number = new Date().getFullYear();
-  financialGoalValue: Number
+  // duration: number = new Date().getFullYear();
+  duration: Date = new Date();
+  // financialGoalValue: Number
+  financialGoalValue: number;
   selectgoal: any
   currentgoalindex = 0;
   currentgoal: any
@@ -57,7 +59,7 @@ export class GoalOnboardingComponent implements OnInit {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = (date.getDate() + 1).toString().padStart(2, '0');
-    return `${year}`;
+    return `${year}-${month}-${day}`;
   }
   formatteddate: string
   newone: any
@@ -78,11 +80,25 @@ export class GoalOnboardingComponent implements OnInit {
   }
 
   save() {
-
     const currentGoalId = this.currentgoal.goalId;
     const userId = localStorage.getItem('userId');
-    const formattedDate = this.formatDate(new Date(this.duration));
+
+    // Parse the duration string and create a Date object
+    const durationDate = new Date(this.duration);
+    console.log(durationDate);
+
+    // Format the duration Date object into the desired format
+    // const formattedDate = this.formatDate(durationDate);
+    const formattedDate = durationDate.toISOString();
+    console.log(formattedDate);
+
+
     this.trueGoals.push(this.currentgoal);
+
+    // No need to create another Date object, you can use durationDate directly
+    console.log(this.formatteddate);
+    console.log((this.financialGoalValue));
+
     this.apiservice.retrievegoals(userId, currentGoalId, formattedDate, this.financialGoalValue, {
       user: { userId: userId },
       goals: this.trueGoals
@@ -92,13 +108,13 @@ export class GoalOnboardingComponent implements OnInit {
       this.newone = JSON.stringify(data.numberOfGoals);
       console.log(this.newone);
     });
+
     this.currentgoalindex++;
+
     if (this.currentgoalindex >= this.selectgoal.length) {
       this.routerto();
     } else {
-
       this.currentgoal = this.selectgoal[this.currentgoalindex];
     }
   }
-
 }

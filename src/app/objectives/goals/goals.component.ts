@@ -26,6 +26,8 @@ export class GoalsComponent implements OnInit {
   }
 
 
+
+
   goals: GoalModel[] = [];
   getImagePath(goalName: string): string {
     const imageMapping: { [key: string]: string } = {
@@ -37,10 +39,10 @@ export class GoalsComponent implements OnInit {
       'super cars': 'car.png',
       'children education': 'ceducation.png',
       'villa': 'villa.png',
-      'buy land': 'buyland.png',
+      'buy land': 'buy land.png',
       'apartment': 'apartment.png',
       'marriage anniversary': 'marriage.png',
-      'tomorrowland': 'buyland.png',
+      'tomorrowland': 'buy land.png',
       'parent marriage anniversary': 'marrige.png',
       'super bikes': 'bike.png',
       'enterpreneurship': 'enterprenuer.jpg',
@@ -59,14 +61,14 @@ export class GoalsComponent implements OnInit {
   goForward() {
     if (this.currentHeading < 3) {
       this.currentHeading++;
-    this.route.params.subscribe(params => {
-      const category = params['category'];
-      if (category) {
-        this.updateUrl(category);
-        this.loadGoals(category);
-        this.updateColorBasedOnCategory(category);
-      }
-    });
+      this.route.params.subscribe(params => {
+        const category = params['category'];
+        if (category) {
+          this.updateUrl(category);
+          this.loadGoals(category);
+          this.updateColorBasedOnCategory(category);
+        }
+      });
     }
   }
 
@@ -83,12 +85,12 @@ export class GoalsComponent implements OnInit {
       });
     }
   }
-  
-  private updateUrl(category: string): void{
+
+  private updateUrl(category: string): void {
     const nextCategory = this.getCategoryByHeading(this.currentHeading);
     this.router.navigate(['goals', nextCategory]);
   }
-  
+
   private getCategoryByHeading(headingNumber: number): string {
     switch (headingNumber) {
       case 1:
@@ -98,10 +100,10 @@ export class GoalsComponent implements OnInit {
       case 3:
         return 'long-term';
       default:
-        return ''; 
+        return '';
     }
   }
- 
+
   onForwardClick() {
     if (this.currentIndex < this.colors.length - 1) {
       this.currentIndex++;
@@ -126,21 +128,21 @@ export class GoalsComponent implements OnInit {
     this.goBackward();
     this.onBackwardClick();
   }
-  
+
   //adding changes 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
-   // this.loadGoals();
-   this.route.params.subscribe(params => {
-    const category = params['category'];
-    if (category) {
-      this.loadGoals(category);
-      this.updateColorBasedOnCategory(category);
-    }
-  });
+    // this.loadGoals();
+    this.route.params.subscribe(params => {
+      const category = params['category'];
+      if (category) {
+        this.loadGoals(category);
+        this.updateColorBasedOnCategory(category);
+      }
+    });
   }
-  loadGoals(category: string): void{
+  loadGoals(category: string): void {
     const userId = localStorage.getItem('userId');
     if (userId) {
       this.apiService.setUserId(userId);
@@ -160,10 +162,10 @@ export class GoalsComponent implements OnInit {
           this.loadLongTermGoals();
           break;
         default:
-          
+
           break;
       }
-    }else {
+    } else {
       console.log('User ID not found in localStorage');
     }
   }
@@ -206,7 +208,7 @@ export class GoalsComponent implements OnInit {
       case 'long-term':
         return 'Long Term';
       default:
-        return 'Goals'; 
+        return 'Goals';
     }
   }
   private updateColorBasedOnCategory(category: string): void {
@@ -228,7 +230,7 @@ export class GoalsComponent implements OnInit {
     this.currentColor = this.colors[this.currentIndex];
   }
 
-  
+
   /*
   loadGoals() {
     const userId = localStorage.getItem('userId');

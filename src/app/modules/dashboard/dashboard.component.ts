@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
       (data: any) => {
 
         this.name = data.user.username;
-       // console.log(this.name);
+        // console.log(this.name);
         this.numberOfGoals = data.numberOfGoals;
       }
     );
@@ -61,6 +61,11 @@ export class DashboardComponent implements OnInit {
         this.holding = holding_amount; //holding amount =  total funds - invested amount(means total amount here)
         const title1 = " " + this.percentage;
         this.title = title1;
+        if (Number.isNaN(this.percentage)) {
+          this.percentage = 0;
+          this.title = "" + this.percentage;
+        }
+
 
         const totalamountSTG = data.totalAmountOfShortTermGoals;
 
@@ -84,23 +89,23 @@ export class DashboardComponent implements OnInit {
         this.percentageM = floatPercentM;
         this.titleM = "" + this.percentageM;
 
-          let percentL: number = (totalamountLTG/totalFGVofLTG)*100;
-          let floatPercentL: number = parseFloat(percentL.toFixed(0));
-          this.percentageL = floatPercentL;
-          this.titleL =""+this.percentageL;
-          if(Number.isNaN(this.percentageL)){
-            this.percentageL = 0;
-            this.titleL =""+this.percentageL;
-          }
-          if(Number.isNaN(this.percentageM)){
-            this.percentageM = 0;
-            this.titleM =""+this.percentageM;
-          }
-          if(Number.isNaN(this.percentageS)){
-            this.percentageS = 0;
-            this.titleS =""+this.percentageS;
-          }
-         
+        let percentL: number = (totalamountLTG / totalFGVofLTG) * 100;
+        let floatPercentL: number = parseFloat(percentL.toFixed(0));
+        this.percentageL = floatPercentL;
+        this.titleL = "" + this.percentageL;
+        if (Number.isNaN(this.percentageL)) {
+          this.percentageL = 0;
+          this.titleL = "" + this.percentageL;
+        }
+        if (Number.isNaN(this.percentageM)) {
+          this.percentageM = 0;
+          this.titleM = "" + this.percentageM;
+        }
+        if (Number.isNaN(this.percentageS)) {
+          this.percentageS = 0;
+          this.titleS = "" + this.percentageS;
+        }
+
 
       }
     );
